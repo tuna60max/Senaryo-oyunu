@@ -1,0 +1,2 @@
+# Senaryo-oyunu
+Senaryo oyunu
