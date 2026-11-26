@@ -170,6 +170,7 @@
 .mb-4{margin-bottom:1rem}
 .mb-6{margin-bottom:1.5rem}
 .mb-8{margin-bottom:2rem}
+.min-h-\[1\.2em\]{min-height:1.2em}
 .min-h-\[200px\]{min-height:200px}
 .min-h-screen{min-height:100vh}
 .min-w-0{min-width:0px}
@@ -1836,11 +1837,238 @@
             netSend(c ? { t: 'choose', slot: k, choice: { id: c.id, text: c.text } } : { t: 'clear', slot: k });
         }
         function netLeave() {
+            relayStop();
             clearTimeout(net.bt);
             Object.values(net.peers).forEach(p => { try { p.pc.close(); } catch (e) {} });
             if (net.pending) { try { net.pending.pc.close(); } catch (e) {} }
             if (net.pc) { try { net.pc.close(); } catch (e) {} }
             Object.assign(net, { role: 'solo', slot: 'tuna', peers: {}, pending: null, pc: null, dc: null, overShown: false, lastDiceTurn: -1 });
+        }
+        // ---------- ÇOK OYUNCULU: ortak sunucu (oda kodu + bağlantı) ----------
+        // Ücretsiz herkese açık MQTT sunucuları WebSocket ile aracı olur; WebRTC/NAT sorunu olmaz.
+        const BROKERS = ['wss://broker.hivemq.com:8884/mqtt', 'wss://broker.emqx.io:8084/mqtt', 'wss://test.mosquitto.org:8081'];
+        const brokerList = () => window.SENARYO_BROKERS || BROKERS;
+        const mqCat = (...a) => { const n = a.reduce((t, x) => t + x.length, 0), o = new Uint8Array(n); let p = 0; a.forEach(x => { o.set(x, p); p += x.length; }); return o; };
+        const mqStrB = s => { const b = new TextEncoder().encode(s); return mqCat(new Uint8Array([b.length >> 8, b.length & 255]), b); };
+        function mqPacket(type, body) {
+            const len = []; let n = body.length;
+            do { let d = n % 128; n = Math.floor(n / 128); if (n > 0) d |= 128; len.push(d); } while (n > 0);
+            return mqCat(new Uint8Array([type, ...len]), body);
+        }
+        function mqConnect(url, clientId, onMsg, onClose) {
+            return new Promise((resolve, reject) => {
+                let ws; try { ws = new WebSocket(url, 'mqtt'); } catch (e) { return reject(e); }
+                ws.binaryType = 'arraybuffer';
+                let buf = new Uint8Array(0), ok = false;
+                const timer = setTimeout(() => { try { ws.close(); } catch (e) {} reject(new Error('zaman aşımı')); }, 6000);
+                const c = {
+                    pid: 1, waits: {}, closed: false,
+                    publish(topic, str) { if (ws.readyState === 1) ws.send(mqPacket(0x30, mqCat(mqStrB(topic), new TextEncoder().encode(str)))); },
+                    subscribe(topic) { return new Promise(res => { const id = c.pid++; c.waits[id] = res; ws.send(mqPacket(0x82, mqCat(new Uint8Array([id >> 8, id & 255]), mqStrB(topic), new Uint8Array([0])))); setTimeout(res, 3000); }); },
+                    close() { c.closed = true; clearInterval(c.ping); try { ws.send(new Uint8Array([0xE0, 0])); } catch (e) {} setTimeout(() => { try { ws.close(); } catch (e) {} }, 150); }
+                };
+                ws.onopen = () => ws.send(mqPacket(0x10, mqCat(mqStrB('MQTT'), new Uint8Array([4, 2, 0, 30]), mqStrB(clientId))));
+                ws.onmessage = ev => {
+                    buf = mqCat(buf, new Uint8Array(ev.data));
+                    while (buf.length >= 2) {
+                        let mul = 1, rem = 0, i = 1, b;
+                        do { if (i >= buf.length) return; b = buf[i++]; rem += (b & 127) * mul; mul *= 128; } while (b & 128);
+                        if (buf.length < i + rem) return;
+                        const type = buf[0], pk = buf.slice(i, i + rem); buf = buf.slice(i + rem);
+                        const kind = type >> 4;
+                        if (kind === 2) {
+                            if (pk[1] === 0) { ok = true; clearTimeout(timer); c.ping = setInterval(() => { try { ws.send(new Uint8Array([0xC0, 0])); } catch (e) {} }, 20000); resolve(c); }
+                            else { clearTimeout(timer); reject(new Error('reddedildi')); }
+                        } else if (kind === 9) { const w = c.waits[(pk[0] << 8) | pk[1]]; if (w) w(); }
+                        else if (kind === 3) {
+                            const tl = (pk[0] << 8) | pk[1], qos = (type >> 1) & 3, off = 2 + tl + (qos ? 2 : 0);
+                            onMsg(new TextDecoder().decode(pk.slice(2, 2 + tl)), new TextDecoder().decode(pk.slice(off)));
+                        }
+                    }
+                };
+                ws.onerror = () => {};
+                ws.onclose = () => { clearTimeout(timer); clearInterval(c.ping); if (!ok) reject(new Error('bağlanamadı')); else if (!c.closed) onClose(); };
+            });
+        }
+        const waitFor = (fn, ms) => new Promise(res => { const t0 = Date.now(), iv = setInterval(() => { const v = fn(); if (v || Date.now() - t0 > ms) { clearInterval(iv); res(v); } }, 100); });
+        const relayUp = room => `senaryo-gh/v1/${room}/up`;
+        function getCid() {
+            let c = localStorage.getItem('senaryo_cid');
+            if (!c) { c = Array.from(crypto.getRandomValues(new Uint8Array(8)), x => 'abcdefghijklmnopqrstuvwxyz0123456789'[x % 36]).join(''); localStorage.setItem('senaryo_cid', c); }
+            return c;
+        }
+        function genRoom() { return Array.from(crypto.getRandomValues(new Uint8Array(6)), x => 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'[x % 31]).join(''); }
+        function relayStatus(t) {
+            const el = document.getElementById('relayStat'); if (el) el.textContent = t;
+            if (net.relay && net.relay.role === 'host') { net.relay.status = t; renderHostPanelIfOpen(); }
+        }
+        function renderHostPanelIfOpen() {
+            const dt = document.querySelector('#netBody details');
+            if (dt && dt.open) return;   // eski yöntemde kod yazılırken paneli yenileme
+            if (!document.getElementById('netModal').classList.contains('hidden') && document.getElementById('netTitle').textContent.includes('DAVET')) renderHostPanel();
+        }
+        function relayLink() {
+            const R = net.relay; if (!R) return '';
+            const base = location.protocol.startsWith('http') ? location.origin + location.pathname : location.href.split('?')[0].split('#')[0];
+            return `${base}?oda=${R.room}`;
+        }
+        // yönetici
+        async function relayHostStart() {
+            if (net.relay) return;
+            const room = genRoom();
+            const R = net.relay = { role: 'host', room, status: 'Sunucuya bağlanılıyor...', clientId: 'sn-h-' + room, subTopic: relayUp(room) };
+            R.onmsg = (t, m) => relayHostMsg(R, m);
+            renderHostPanelIfOpen();
+            for (const url of brokerList()) {
+                try {
+                    R.url = url;
+                    R.mq = await mqConnect(url, R.clientId, R.onmsg, () => relayDropped(R));
+                    await R.mq.subscribe(R.subTopic);
+                    R.status = 'Hazır — arkadaşların bağlantıyı açınca otomatik katılır';
+                    R.hb = setInterval(() => {
+                        Object.values(net.peers).forEach(p => { if (!p.cid) return; p.dc.send(JSON.stringify({ t: 'ping' })); if (Date.now() - p.last > 50000) peerLost(p); });
+                    }, 15000);
+                    renderHostPanelIfOpen();
+                    return;
+                } catch (e) { try { R.mq && R.mq.close(); } catch (_) {} }
+            }
+            R.status = 'Sunucuya bağlanılamadı. İnternetini kontrol et ya da aşağıdaki eski yöntemi kullan.';
+            net.relay = null; R.failed = true;
+            renderHostPanelIfOpen();
+            net.lastRelayError = R.status;
+        }
+        function relayHostMsg(R, msg) {
+            let p; try { p = JSON.parse(msg); } catch (e) { return; }
+            if (!p || typeof p.c !== 'string' || !/^[\w-]{4,32}$/.test(p.c)) return;
+            let peer = Object.values(net.peers).find(x => x.cid === p.c);
+            if (peer) peer.last = Date.now();
+            if (p.hello) {
+                const dn = s => R.mq && R.mq.publish(`senaryo-gh/v1/${R.room}/dn/${p.c}`, s);
+                if (!peer) {
+                    const free = activeKeys().filter(k => k !== 'tuna' && !net.peers[k]);
+                    if (!free.length || !gameState) { dn(JSON.stringify({ t: 'full' })); return; }
+                    const slot = free[0];
+                    peer = { slot, cid: p.c, open: true, last: Date.now(), dc: { readyState: 'open', send: dn, close() {} } };
+                    net.peers[slot] = peer; net.role = 'host'; net.pending = null;
+                    showToast(`${nameOf(slot)} bağlandı.`, 'emerald');
+                    updateGameUI(); renderHostPanelIfOpen();
+                }
+                peer.dc.send(stateMsg(peer.slot));
+                return;
+            }
+            if (!peer) return;
+            if (p.bye) { peerLost(peer); return; }
+            if (typeof p.d === 'string') hostOnMessage(peer, p.d);
+        }
+        // katılan
+        async function relayJoin(codeIn) {
+            const room = String(codeIn || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10);
+            if (room.length < 4) { relayStatus('Oda kodunu yaz.'); return; }
+            if (net.relay) { if (net.role === 'guest') return; relayStop(); }
+            const cid = getCid(), up = relayUp(room);
+            const R = net.relay = { role: 'guest', room, cid, last: Date.now(), joined: false, clientId: 'sn-' + cid, subTopic: `senaryo-gh/v1/${room}/dn/${cid}` };
+            R.onmsg = (t, m) => {
+                R.last = Date.now();
+                let p = null; try { p = JSON.parse(m); } catch (e) {}
+                if (p && p.t === 'full') { R.reject = 'Oda dolu: boş oyuncu yeri kalmamış.'; return; }
+                if (p && p.t === 'bye') { guestLost(); return; }
+                if (p && p.t === 'ping') return;
+                guestOnMessage(m);
+                if (net.role === 'guest') R.joined = true;
+            };
+            net.dc = { readyState: 'open', send: s => R.mq && R.mq.publish(up, JSON.stringify({ c: cid, d: s })) };
+            for (const url of brokerList()) {
+                relayStatus('Odaya bağlanılıyor...');
+                try {
+                    R.url = url;
+                    R.mq = await mqConnect(url, R.clientId, R.onmsg, () => relayDropped(R));
+                    await R.mq.subscribe(R.subTopic);
+                    R.mq.publish(up, JSON.stringify({ c: cid, hello: 1 }));
+                    await waitFor(() => R.joined || R.reject, 4500);
+                    if (R.joined) {
+                        R.hb = setInterval(() => {
+                            if (!R.mq) return;
+                            R.mq.publish(up, JSON.stringify({ c: cid, ping: 1 }));
+                            if (Date.now() - R.last > 45000) guestLost();
+                        }, 15000);
+                        return;
+                    }
+                    if (R.reject) { relayStatus(R.reject); relayStop(); return; }
+                    R.mq.close();
+                } catch (e) { try { R.mq && R.mq.close(); } catch (_) {} }
+            }
+            relayStatus('Oda bulunamadı. Kodu kontrol et; yönetici oyunda olmalı ve “arkadaşını davet et” panelini açmış olmalı.');
+            net.relay = null; net.dc = null;
+        }
+        function relayDropped(R, tries = 0) {
+            if (net.relay !== R) return;
+            relayStatus('Bağlantı koptu, yeniden deneniyor...');
+            R.rt = setTimeout(async () => {
+                if (net.relay !== R) return;
+                try {
+                    R.mq = await mqConnect(R.url, R.clientId, R.onmsg, () => relayDropped(R));
+                    await R.mq.subscribe(R.subTopic);
+                    if (R.role === 'guest') R.mq.publish(relayUp(R.room), JSON.stringify({ c: R.cid, hello: 1 }));
+                    else relayStatus('Hazır — arkadaşların bağlantıyı açınca otomatik katılır');
+                } catch (e) {
+                    if (tries >= 5) { if (R.role === 'guest') guestLost(); else relayStatus('Sunucuya bağlanılamadı.'); }
+                    else relayDropped(R, tries + 1);
+                }
+            }, 2000 + tries * 2000);
+        }
+        function relayStop() {
+            const R = net.relay; if (!R) return;
+            net.relay = null; clearInterval(R.hb); clearTimeout(R.rt);
+            try {
+                if (R.mq) {
+                    if (R.role === 'guest') R.mq.publish(relayUp(R.room), JSON.stringify({ c: R.cid, bye: 1 }));
+                    else Object.values(net.peers).forEach(p => { if (p.cid) p.dc.send(JSON.stringify({ t: 'bye' })); });
+                    setTimeout(() => R.mq.close(), 250);
+                }
+                if (R.role === 'guest' && location.search.includes('oda=')) history.replaceState(null, '', location.pathname);
+            } catch (e) {}
+        }
+        function relayHostHtml() {
+            const R = net.relay;
+            const conn = Object.keys(net.peers).map(k => `<li class="text-emerald-400">● ${esc(nameOf(k))} bağlı</li>`).join('') || '<li class="text-gray-500">Henüz bağlı oyuncu yok</li>';
+            const st = R ? R.status : (net.lastRelayError || 'Hazırlanıyor...');
+            return `<div class="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-center">
+                    <div class="text-[10px] font-mono text-gray-400">ODA KODU</div>
+                    <div class="text-3xl font-mono font-extrabold tracking-widest text-amber-400">${R ? esc(R.room) : '······'}</div>
+                    <div class="text-[11px] font-mono mt-1 ${R && /^Hazır/.test(R.status) ? 'text-emerald-400' : 'text-gray-400'}">${esc(st)}</div>
+                </div>
+                <input id="relayLink" readonly value="${esc(relayLink())}" class="w-full mt-2 bg-[#080b0e] border border-gray-700 rounded-lg px-2 py-2 text-[11px] font-mono text-gray-200">
+                <div class="flex gap-2 mt-2"><button onclick="copyText('relayLink')" class="${NB} flex-1 bg-gray-800 border-gray-700 text-gray-200">BAĞLANTIYI KOPYALA</button><button onclick="shareText('relayLink')" class="${NB} flex-1 bg-gray-800 border-gray-700 text-gray-200">PAYLAŞ</button></div>
+                <ul class="text-xs font-mono space-y-1 mt-3">${conn}</ul>
+                <label class="flex items-center gap-2 text-[11px] font-mono text-gray-300 mt-3"><input type="checkbox" ${net.auto ? 'checked' : ''} onchange="net.auto = this.checked"> Herkes seçince turu otomatik başlat</label>
+                <p class="text-[10px] text-gray-500 mt-2">Arkadaşların bağlantıyı açınca kendiliğinden katılır. Ya da ana menüde ODAYA KATIL → oda kodunu yazar. Oda kodunu bilen herkes katılabilir. Bu sayfayı kapatırsan oyun herkes için durur.</p>`;
+        }
+        function renderHostPanel() {
+            renderHostPanelManual();
+            const body = document.getElementById('netBody');
+            const legacy = body.innerHTML.replace(/<label class="flex items-center gap-2[^>]*>.*?<\/label>/s, '');
+            body.innerHTML = relayHostHtml() + `<details class="mt-4 border-t border-gray-800 pt-3"><summary class="cursor-pointer text-[11px] font-mono text-gray-400">Gelişmiş: kod alışverişiyle bağlan (eski yöntem)</summary><div class="mt-3">${legacy}</div></details>`;
+            document.getElementById('netTitle').textContent = 'ÇOK OYUNCULU — ARKADAŞINI DAVET ET';
+        }
+        function openJoinPanel() {
+            openJoinPanelManual();
+            const body = document.getElementById('netBody'), legacy = body.innerHTML;
+            body.innerHTML = `<div class="space-y-2">
+                    <label class="block text-[11px] font-mono text-gray-400">Yöneticinin verdiği oda kodunu yaz:</label>
+                    <input id="relayCode" maxlength="10" autocapitalize="characters" autocomplete="off" placeholder="ör. K7MZ2P" oninput="this.value = this.value.toUpperCase()" class="w-full bg-[#080b0e] border border-gray-700 rounded-lg px-3 py-2 text-lg tracking-widest text-center font-mono text-amber-300 focus:border-amber-500 focus:outline-none">
+                    <button onclick="relayJoin(document.getElementById('relayCode').value)" class="${NB} w-full bg-amber-500 text-gray-950 border-amber-500">KATIL</button>
+                    <div id="relayStat" class="text-[11px] font-mono text-gray-400 min-h-[1.2em]"></div>
+                    <p class="text-[10px] text-gray-500">Yönetici sana bir bağlantı gönderdiyse onu doğrudan açman yeterli; kod kendiliğinden girilir.</p>
+                </div>
+                <details class="mt-4 border-t border-gray-800 pt-3"><summary class="cursor-pointer text-[11px] font-mono text-gray-400">Gelişmiş: kod alışverişiyle bağlan (eski yöntem)</summary><div class="mt-3">${legacy}</div></details>`;
+            document.getElementById('netTitle').textContent = 'ODAYA KATIL';
+        }
+        function relayAutoJoin() {
+            const c = new URLSearchParams(location.search).get('oda');
+            if (!c) return;
+            openJoinPanel();
+            document.getElementById('relayCode').value = c.toUpperCase();
+            relayJoin(c);
         }
         // ---- paneller ----
         const TA = 'w-full h-24 bg-[#080b0e] border border-gray-700 rounded-lg p-2 text-[11px] font-mono text-gray-200 focus:border-amber-500 focus:outline-none break-all resize-none';
@@ -1863,9 +2091,9 @@
         }
         function openHostPanel() {
             if (!gameState || gameState.playerCount < 2 || net.role === 'guest') { showToast('Önce 2 veya daha fazla kişilik bir oyun aç.', 'amber'); return; }
-            renderHostPanel();
+            renderHostPanel(); relayHostStart();
         }
-        function renderHostPanel() {
+        function renderHostPanelManual() {
             const free = activeKeys().filter(k => k !== 'tuna' && !net.peers[k]);
             const conn = Object.keys(net.peers).map(k => `<li class="text-emerald-400">● ${esc(nameOf(k))} bağlı</li>`).join('') || '<li class="text-gray-500">Henüz bağlı oyuncu yok</li>';
             netModal('ÇOK OYUNCULU — OYUNCU DAVET ET', `
@@ -1881,7 +2109,7 @@
                     <button onclick="hostAnswerClick()" class="${NB} w-full bg-emerald-500/20 text-emerald-300 border-emerald-500/40">BAĞLAN</button>
                 </div>` : '<p class="text-xs text-gray-400">Davet edilecek boş oyuncu yeri kalmadı.</p>'}
                 <label class="flex items-center gap-2 text-[11px] font-mono text-gray-300 mt-3"><input type="checkbox" ${net.auto ? 'checked' : ''} onchange="net.auto = this.checked"> Herkes seçince turu otomatik başlat</label>
-                <p class="text-[10px] text-gray-500 mt-3">Bu sayfayı kapatırsan oyun herkes için durur. Çok katı ağlarda (okul/iş/mobil veri) bağlantı kurulamayabilir.</p>`);
+                <p class="text-[10px] text-gray-500 mt-3">Bu sayfayı kapatırsan oyun herkes için durur. Bu yöntem çok katı ağlarda (okul/iş/mobil veri) çalışmayabilir.</p>`);
         }
         async function hostInviteClick() {
             const ta = document.getElementById('netOffer');
@@ -1893,7 +2121,7 @@
             try { await hostAcceptAnswer(document.getElementById('netAnswer').value); showToast('Bağlanılıyor...', 'emerald'); }
             catch (e) { showToast('Cevap kodu geçersiz.', 'amber'); }
         }
-        function openJoinPanel() {
+        function openJoinPanelManual() {
             netModal('ODAYA KATIL', `<div class="space-y-2">
                 <label class="block text-[11px] font-mono text-gray-400">1) Yöneticinin gönderdiği davet kodunu yapıştır:</label>
                 <textarea id="netInvite" class="${TA}" placeholder="Davet kodu..."></textarea>
@@ -3211,6 +3439,7 @@ ${keys.map(schema).join(',\n')}
             scheduleStorm();
             document.getElementById('chatQuick').innerHTML = ['👍', '❗ Dikkat!', '🏃 Kaçalım', '💧 Su lazım', '🩹 Bandaj lazım', '✅ Tamam'].map(t => `<button onclick="chatSend(this.textContent)" class="px-2 py-0.5 rounded border border-gray-700 bg-gray-800 text-[10px] font-mono text-gray-200">${t}</button>`).join('');
             buildExtraPlayers();
+            setTimeout(relayAutoJoin, 400);
             document.getElementById('volSlider').value = Math.round(soundVol * 100);
             initDefaultSavesIfEmpty();
             document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNewSaveWizard(); });
