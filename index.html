@@ -23,6 +23,7 @@
 .bg-\[\#141a22\]{background-color:rgba(20,26,34,1)}
 .bg-\[\#151c26\]{background-color:rgba(21,28,38,1)}
 .bg-\[\#151d28\]{background-color:rgba(21,29,40,1)}
+.bg-\[\#161e29\]{background-color:rgba(22,30,41,1)}
 .bg-\[radial-gradient\(ellipse_at_bottom\,_\#241316_0\%\,_\#0b0f15_58\%\,_\#05070a_100\%\)\]{background-image:radial-gradient(ellipse at bottom, #241316 0%, #0b0f15 58%, #05070a 100%)}
 .bg-amber-400{background-color:rgba(251,191,36,1)}
 .bg-amber-500{background-color:rgba(245,158,11,1)}
@@ -71,6 +72,7 @@
 .border-emerald-500{border-color:rgba(16,185,129,1)}
 .border-emerald-500\/30{border-color:rgba(16,185,129,0.3)}
 .border-emerald-500\/40{border-color:rgba(16,185,129,0.4)}
+.border-emerald-500\/50{border-color:rgba(16,185,129,0.5)}
 .border-gray-600{border-color:rgba(75,85,99,1)}
 .border-gray-700{border-color:rgba(55,65,81,1)}
 .border-gray-800{border-color:rgba(31,41,55,1)}
@@ -91,6 +93,7 @@
 .border-t{border-top-width:1px}
 .bottom-0{bottom:0px}
 .bottom-10{bottom:2.5rem}
+.bottom-20{bottom:5rem}
 .bottom-24{bottom:6rem}
 .bottom-4{bottom:1rem}
 .bottom-40{bottom:10rem}
@@ -142,10 +145,12 @@
 .h-80{height:20rem}
 .h-full{height:100%}
 .inline{display:inline}
+.inline-block{display:inline-block}
 .inline-flex{display:inline-flex}
 .inset-0{top:0px;right:0px;bottom:0px;left:0px}
 .inset-x-0{left:0px;right:0px}
 .items-center{align-items:center}
+.items-start{align-items:flex-start}
 .justify-between{justify-content:space-between}
 .justify-center{justify-content:center}
 .left-0{left:0px}
@@ -154,12 +159,15 @@
 .left-auto{left:auto}
 .list-disc{list-style-type:disc}
 .list-inside{list-style-position:inside}
+.m-0\.5{margin:0.125rem}
+.max-h-28{max-height:7rem}
 .max-h-32{max-height:8rem}
 .max-h-64{max-height:16rem}
 .max-h-\[50vh\]{max-height:50vh}
 .max-h-\[90vh\]{max-height:90vh}
 .max-w-2xl{max-width:42rem}
 .max-w-7xl{max-width:80rem}
+.max-w-\[78vw\]{max-width:78vw}
 .max-w-\[85vw\]{max-width:85vw}
 .max-w-md{max-width:28rem}
 .max-w-sm{max-width:24rem}
@@ -188,6 +196,7 @@
 .mt-5{margin-top:1.25rem}
 .mt-8{margin-top:2rem}
 .mx-auto{margin-left:auto;margin-right:auto}
+.my-4{margin-top:1rem;margin-bottom:1rem}
 .opacity-40{opacity:0.4}
 .opacity-55{opacity:0.55}
 .opacity-60{opacity:0.6}
@@ -240,6 +249,7 @@
 .relative{position:relative}
 .resize-none{resize:none}
 .right-12{right:3rem}
+.right-3{right:0.75rem}
 .right-32{right:8rem}
 .right-4{right:1rem}
 .rounded{border-radius:.25rem}
@@ -253,6 +263,7 @@
 .shadow-lg{--tw-sh:rgba(0,0,0,.1);box-shadow:0 10px 15px -3px var(--tw-sh),0 4px 6px -4px var(--tw-sh)}
 .shadow-md{--tw-sh:rgba(0,0,0,.1);box-shadow:0 4px 6px -1px var(--tw-sh),0 2px 4px -2px var(--tw-sh)}
 .shrink-0{flex-shrink:0}
+.space-y-0\.5>:not([hidden])~:not([hidden]){margin-top:0.125rem}
 .space-y-1>:not([hidden])~:not([hidden]){margin-top:0.25rem}
 .space-y-1\.5>:not([hidden])~:not([hidden]){margin-top:0.375rem}
 .space-y-2>:not([hidden])~:not([hidden]){margin-top:0.5rem}
@@ -297,6 +308,7 @@
 .w-2{width:0.5rem}
 .w-2\.5{width:0.625rem}
 .w-48{width:12rem}
+.w-64{width:16rem}
 .w-72{width:18rem}
 .w-8{width:2rem}
 .w-auto{width:auto}
@@ -398,6 +410,7 @@
 .fa-play{--fa:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3Cpath%20d%3D%22M91.2%2036.9c-12.4-6.8-27.4-6.5-39.6.7S32%2057.9%2032%2072v368c0%2014.1%207.5%2027.2%2019.6%2034.4s27.2%207.5%2039.6.7l336-184c12.8-7%2020.8-20.5%2020.8-35.1s-8-28.1-20.8-35.1z%22/%3E%3C/svg%3E")}
 .fa-plus{--fa:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20448%20512%22%3E%3Cpath%20d%3D%22M256%2064c0-17.7-14.3-32-32-32s-32%2014.3-32%2032v160H32c-17.7%200-32%2014.3-32%2032s14.3%2032%2032%2032h160v160c0%2017.7%2014.3%2032%2032%2032s32-14.3%2032-32V288h160c17.7%200%2032-14.3%2032-32s-14.3-32-32-32H256z%22/%3E%3C/svg%3E")}
 .fa-satellite-dish{--fa:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20d%3D%22M232%200c154.6%200%20280%20125.4%20280%20280%200%2013.3-10.7%2024-24%2024s-24-10.7-24-24c0-128.1-103.9-232-232-232-13.3%200-24-10.7-24-24s10.7-24%2024-24m-24%20120c0-13.3%2010.7-24%2024-24%20101.6%200%20184%2082.4%20184%20184%200%2013.3-10.7%2024-24%2024s-24-10.7-24-24c0-75.1-60.9-136-136-136-13.3%200-24-10.7-24-24M26.4%20142.7c8.8-17.9%2032.4-19.9%2046.5-5.8l128.5%20128.5%2032-32c12.5-12.5%2032.8-12.5%2045.3%200s12.5%2032.8%200%2045.3l-32%2032%20128.5%20128.5c14.1%2014.1%2012%2037.6-5.8%2046.5-34.2%2016.9-72.6%2026.4-113.3%2026.4-141.4%200-256-114.6-256-256%200-40.7%209.5-79.2%2026.4-113.3z%22/%3E%3C/svg%3E")}
+.fa-ship{--fa:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20640%20512%22%3E%3Cpath%20d%3D%22M272%200c-26.5%200-48%2021.5-48%2048v16h-16c-44.2%200-80%2035.8-80%2080v108.8l-21.6%208.6c-14.8%205.9-22.5%2022.4-17.4%2037.5%2010.4%2031.3%2026.8%2059.3%2047.7%2083.1%2020.1-9.2%2041.7-13.9%2063.3-14%2033.1-.2%2066.3%2010.2%2094.4%2031.4l1.6%201.2v-215l-104%2041.6V144c0-8.8%207.2-16%2016-16h224c8.8%200%2016%207.2%2016%2016v83.2l-104-41.6v215l1.6-1.2c27.5-20.7%2059.9-31.2%2092.4-31.4%2022.3-.1%2044.6%204.5%2065.3%2014%2020.9-23.7%2037.3-51.8%2047.7-83.1%205-15.2-2.6-31.6-17.4-37.5l-21.6-8.6V144c0-44.2-35.8-80-80-80h-16V48c0-26.5-21.5-48-48-48zm131.4%20476.1c21.3-16.1%2049.9-16.1%2071.2%200%2019%2014.4%2041.9%2028.2%2067.2%2033.3%2026.5%205.4%2054.3.8%2080.7-19.1%2010.6-8%2012.7-23%204.7-33.6s-23-12.7-33.6-4.7c-14.9%2011.2-28.6%2013.1-42.3%2010.3-14.9-3-30.9-11.9-47.8-24.6-38.4-29-90.5-29-129%200-24%2018.1-40.7%2026.3-54.5%2026.3s-30.5-8.2-54.5-26.3c-38.4-29-90.5-29-129%200-21.6%2016.3-41.3%2025.8-58.9%2025.7-9.6-.1-19.9-3-31.2-11.5-10.6-8-25.6-5.9-33.6%204.7s-5.8%2025.7%204.8%2033.7c19.1%2014.4%2039.4%2021%2059.8%2021.1%2033.9.2%2064.3-17.4%2088.1-35.3%2021.3-16.1%2049.9-16.1%2071.2%200%2024.2%2018.3%2052.3%2035.9%2083.4%2035.9s59.1-17.7%2083.4-35.9z%22/%3E%3C/svg%3E")}
 .fa-skull{--fa:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20d%3D%22M416%20427.4c58.5-44%2096-111.6%2096-187.4C512%20107.5%20397.4%200%20256%200S0%20107.5%200%20240c0%2075.8%2037.5%20143.4%2096%20187.4V464c0%2026.5%2021.5%2048%2048%2048h32v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h64v-40c0-13.3%2010.7-24%2024-24s24%2010.7%2024%2024v40h32c26.5%200%2048-21.5%2048-48zM96%20256a64%2064%200%201%201%20128%200%2064%2064%200%201%201-128%200m256-64a64%2064%200%201%201%200%20128%2064%2064%200%201%201%200-128%22/%3E%3C/svg%3E")}
 .fa-spinner{--fa:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20d%3D%22M208%2048a48%2048%200%201%201%2096%200%2048%2048%200%201%201-96%200m0%20416a48%2048%200%201%201%2096%200%2048%2048%200%201%201-96%200M48%20208a48%2048%200%201%201%200%2096%2048%2048%200%201%201%200-96m368%2048a48%2048%200%201%201%2096%200%2048%2048%200%201%201-96%200M75%20369.1a48%2048%200%201%201%2067.9%2067.9A48%2048%200%201%201%2075%20369.1M75%2075a48%2048%200%201%201%2067.9%2067.9A48%2048%200%201%201%2075%2075m362%20294.1a48%2048%200%201%201-67.9%2067.9%2048%2048%200%201%201%2067.9-67.9%22/%3E%3C/svg%3E")}
 .fa-terminal{--fa:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%3Cpath%20d%3D%22M9.4%20118.6c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200l160%20160c12.5%2012.5%2012.5%2032.8%200%2045.3l-160%20160c-12.5%2012.5-32.8%2012.5-45.3%200s-12.5-32.8%200-45.3L146.7%20256zM224%20384h256c17.7%200%2032%2014.3%2032%2032s-14.3%2032-32%2032H224c-17.7%200-32-14.3-32-32s14.3-32%2032-32%22/%3E%3C/svg%3E")}
@@ -412,6 +425,14 @@
     </style>
     <style>
         button:disabled{opacity:.6}
+    </style>
+    <style>
+        #volSlider{width:0;opacity:0;margin-left:-8px;pointer-events:none;transition:width .25s,opacity .2s,margin .25s}
+        #soundWrap:hover #volSlider,#soundWrap:focus-within #volSlider,#soundWrap.show #volSlider{width:84px;opacity:1;margin-left:0;pointer-events:auto}
+        #soundWrap{padding-right:6px!important}
+    </style>
+    <style>
+        #goalPanel svg text{font-family:'JetBrains Mono',monospace}
     </style>
     <style>
         .wx-l{position:absolute;inset:0;opacity:0;transition:opacity 2.5s}
@@ -621,7 +642,7 @@
 
     <div class="fixed left-3 bottom-24 z-40 flex items-center gap-2 bg-[#10151c]/90 border border-gray-700 rounded-full pl-1 pr-3 py-1">
         <button id="soundBtn" onclick="toggleSound()" aria-label="Ses aç/kapat" class="w-8 h-8 rounded-full text-gray-300 hover:text-white flex items-center justify-center"><i id="soundIcon" class="fa-solid fa-volume-high"></i></button>
-        <input id="volSlider" type="range" min="0" max="100" value="70" oninput="setVolume(this.value)" aria-label="Ses seviyesi" style="width:84px;accent-color:#f59e0b">
+        <input id="volSlider" type="range" min="0" max="100" value="70" oninput="setVolume(this.value)" aria-label="Ses seviyesi" style="accent-color:#f59e0b">
     </div>
 
     <button id="chatBtn" onclick="chatToggle()" aria-label="Sohbet" class="hidden fixed left-3 bottom-40 z-40 w-10 h-10 rounded-full bg-[#10151c]/90 border border-gray-700 text-gray-300 hover:text-white flex items-center justify-center"><i class="fa-solid fa-comment"></i></button>
@@ -1057,6 +1078,17 @@
                     </div>
                 </div>
 
+                <div>
+                    <label class="block font-mono text-gray-400 mb-1.5">OYUN MODU</label>
+                    <div class="grid grid-cols-2 gap-2 font-mono">
+                        <button type="button" data-goal="final" onclick="selectWizardGoal('final')" class="p-2.5 rounded-lg border border-gray-700 bg-[#080b0e] text-gray-400 text-left transition"><div class="font-bold text-sm text-amber-400">FİNALLİ</div><span class="text-[10px] block mt-0.5 opacity-70">Kadıköy’den Eminönü’ne uzun tahliye yolculuğu ve son direniş</span></button>
+                        <button type="button" data-goal="endless" onclick="selectWizardGoal('endless')" class="p-2.5 rounded-lg border border-gray-700 bg-[#080b0e] text-gray-400 text-left transition"><div class="font-bold text-sm text-sky-400">SONSUZ</div><span class="text-[10px] block mt-0.5 opacity-70">Hedefsiz, istediğin kadar hayatta kal</span></button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-mono text-gray-400 mb-1.5">ROLLER <span class="text-gray-500">(Doktor, Tamirci, İzci, Savaşçı)</span></label>
+                    <div class="grid grid-cols-2 gap-2.5"><select id="wizardRole1" class="w-full bg-[#080b0e] border border-gray-700 rounded-lg px-2 py-2 text-xs font-mono text-gray-200"><option value="">Rol 1: rastgele</option><option>Doktor</option><option>Tamirci</option><option>İzci</option><option>Savaşçı</option><option value="-">Rolsüz</option></select><select id="wizardRole2" class="w-full bg-[#080b0e] border border-gray-700 rounded-lg px-2 py-2 text-xs font-mono text-gray-200"><option value="">Rol 2: rastgele</option><option>Doktor</option><option>Tamirci</option><option>İzci</option><option>Savaşçı</option><option value="-">Rolsüz</option></select><select id="wizardRole3" class="w-full bg-[#080b0e] border border-gray-700 rounded-lg px-2 py-2 text-xs font-mono text-gray-200"><option value="">Rol 3: rastgele</option><option>Doktor</option><option>Tamirci</option><option>İzci</option><option>Savaşçı</option><option value="-">Rolsüz</option></select><select id="wizardRole4" class="w-full bg-[#080b0e] border border-gray-700 rounded-lg px-2 py-2 text-xs font-mono text-gray-200"><option value="">Rol 4: rastgele</option><option>Doktor</option><option>Tamirci</option><option>İzci</option><option>Savaşçı</option><option value="-">Rolsüz</option></select></div>
+                </div>
                 <div>
                     <label class="block font-mono text-gray-400 mb-1.5">ZORLUK SEVİYESİ <span class="text-gray-500">(Sonradan değiştirilemez)</span></label>
                     <div class="grid grid-cols-2 gap-2 font-mono">
@@ -1578,7 +1610,7 @@
                 const c = gameState[who], has = e => c.inventory.some(i => i.effect === e);
                 let n = inBld ? pickOne([2, 3, 3, 4]) : pickOne([3, 4, 4, 5]);
                 if (c.stamina < 40 || c.health < 40) n = Math.max(2, n - 1);
-                const ok = x => (!x.p2 || multi) && (!x.bag || c.inventory.some(i => i.name.includes('Sırt Çantası'))) && (x.loc !== 'bld' || inBld) && (x.loc !== 'st' || !inBld) && !taken.has(x.t);
+                const ok = x => (!x.p2 || multi) && (!x.prog || gameState.goalMode === 'final') && (!x.camp || !campActive()) && (!x.pet || !gameState.pet) && (!x.bag || c.inventory.some(i => i.name.includes('Sırt Çantası'))) && (x.loc !== 'bld' || inBld) && (x.loc !== 'st' || !inBld) && !taken.has(x.t);
                 const out = [];
                 if (c.hunger >= 45 && has('food')) out.push(CTX.eat);
                 if (c.thirst >= 45 && has('thirst')) out.push(CTX.drink);
@@ -1590,6 +1622,7 @@
                 pool.sort(() => Math.random() - .5);
                 const l = pool.find(x => LOOTY.includes(x.type));
                 if (l) out.push(l);
+                if (gameState.goalMode === 'final') { const pr = pool.find(x => x.prog && !out.includes(x)); if (pr) out.push(pr); }
                 for (const x of pool) {
                     if (out.length >= n) break;
                     if (!out.includes(x) && out.filter(y => y.type === x.type).length < 2) out.push(x);
@@ -1597,7 +1630,7 @@
                 for (const x of pool) { if (out.length >= n) break; if (!out.includes(x)) out.push(x); }
                 out.forEach(x => { taken.add(x.t); used.push(x.t); });
                 while (used.length > 24) used.shift();
-                return out.map((x, i) => ({ id: `${who}_${gameState.turn}_${i}`, text: x.t, type: x.type }));
+                return out.map((x, i) => ({ id: `${who}_${gameState.turn}_${i}`, text: x.t, type: x.type, ...(x.prog ? { prog: true } : {}), ...(x.camp ? { camp: true } : {}), ...(x.pet ? { pet: x.pet } : {}) }));
             };
             const res = {};
             keys.forEach(k => { res[k] = build(k); });
@@ -1631,7 +1664,7 @@
         function chatSend(text) {
             text = String(text || '').trim().slice(0, 100);
             if (!text || net.role === 'solo') return;
-            const me = net.role === 'guest' ? nameOf(net.slot) : nameOf('tuna');
+            const me = net.role === 'guest' ? (net.slot === 'spec' ? (getPname() || 'İzleyici') : nameOf(net.slot)) : nameOf('tuna');
             chatShow(me, text);
             if (net.role === 'guest') netSend({ t: 'chat', text });
             else Object.values(net.peers).forEach(p => { if (p.dc.readyState === 'open') p.dc.send(JSON.stringify({ t: 'chat', from: me, text })); });
@@ -1647,7 +1680,8 @@
         ];
         // ---------- 4 OYUNCU + ZOR SEÇİM ----------
         const PKEYS = ['tuna', 'halil', 'p3', 'p4'];
-        const activeKeys = () => PKEYS.slice(0, (gameState && gameState.playerCount) || 1);
+        const playerKeys = () => PKEYS.slice(0, (gameState && gameState.playerCount) || 1);
+        const activeKeys = () => playerKeys().filter(k => gameState && gameState[k] && !gameState[k].dead);
         const PCOL = {
             tuna: { active: 'border-sky-500 bg-sky-500/15 text-white', num: 'text-sky-400' },
             halil: { active: 'border-purple-500 bg-purple-500/15 text-white', num: 'text-purple-400' },
@@ -1762,7 +1796,7 @@
             if (m.t === 'chat') {
                 const tx = String(m.text || '').trim().slice(0, 100);
                 if (!tx) return;
-                chatShow(nameOf(slot), tx);
+                chatShow(nameOf(slot), tx); chatToSpecs(nameOf(slot), tx);
                 Object.values(net.peers).forEach(p => { if (p !== peer && p.dc.readyState === 'open') p.dc.send(JSON.stringify({ t: 'chat', from: nameOf(slot), text: tx })); });
                 return;
             }
@@ -1771,7 +1805,7 @@
                 const cur = (gameState.currentOptions[slot] || []).find(o => o.id === c.id);
                 if (cur) selectedChoices[slot] = cur;
                 else if (!gameState.dilemma && c.id === 'custom' && typeof c.text === 'string' && c.text.trim()) selectedChoices[slot] = { id: 'custom', text: c.text.trim().slice(0, 160), type: 'custom' };
-                else return;
+                else { peer.dc.send(stateMsg(slot)); return; }
                 setBadge(slot, true);
                 renderOptions(slot, gameState.currentOptions[slot] || []);
             } else if (m.t === 'clear') {
@@ -1812,7 +1846,7 @@
             if (m.t === 'chat' && typeof m.text === 'string') { chatShow(String(m.from || '?').slice(0, 20), m.text.slice(0, 100)); return; }
             if (m.t !== 'state' || !m.state || !m.state.tuna || !Array.isArray(m.state.history)) return;
             const first = net.role !== 'guest', prevTurn = first ? -1 : gameState.turn;
-            net.role = 'guest'; net.slot = PKEYS.includes(m.slot) ? m.slot : 'halil';
+            net.role = 'guest'; net.slot = PKEYS.includes(m.slot) ? m.slot : (m.slot === 'spec' ? 'spec' : 'halil');
             gameState = m.state;
             if (first || gameState.turn !== prevTurn) {
                 selectedChoices = { tuna: null, halil: null, p3: null, p4: null };
@@ -1824,6 +1858,7 @@
             configureLayoutForPlayerCount(gameState.playerCount);
             updateGameUI();
             PKEYS.forEach(k => { if (k !== net.slot && m.chosen) setBadge(k, !!m.chosen[k]); });
+            net.lastChosen = m.chosen;
             if (m.rolls && m.rollsTurn !== net.lastDiceTurn) {
                 net.lastDiceTurn = m.rollsTurn;
                 document.getElementById('diceResultBox').classList.remove('hidden');
@@ -1862,12 +1897,12 @@
                 let buf = new Uint8Array(0), ok = false;
                 const timer = setTimeout(() => { try { ws.close(); } catch (e) {} reject(new Error('zaman aşımı')); }, 6000);
                 const c = {
-                    pid: 1, waits: {}, closed: false,
+                    ws, pid: 1, waits: {}, closed: false,
                     publish(topic, str) { if (ws.readyState === 1) ws.send(mqPacket(0x30, mqCat(mqStrB(topic), new TextEncoder().encode(str)))); },
                     subscribe(topic) { return new Promise(res => { const id = c.pid++; c.waits[id] = res; ws.send(mqPacket(0x82, mqCat(new Uint8Array([id >> 8, id & 255]), mqStrB(topic), new Uint8Array([0])))); setTimeout(res, 3000); }); },
                     close() { c.closed = true; clearInterval(c.ping); try { ws.send(new Uint8Array([0xE0, 0])); } catch (e) {} setTimeout(() => { try { ws.close(); } catch (e) {} }, 150); }
                 };
-                ws.onopen = () => ws.send(mqPacket(0x10, mqCat(mqStrB('MQTT'), new Uint8Array([4, 2, 0, 30]), mqStrB(clientId))));
+                ws.onopen = () => ws.send(mqPacket(0x10, mqCat(mqStrB('MQTT'), new Uint8Array([4, 2, 0, 120]), mqStrB(clientId))));
                 ws.onmessage = ev => {
                     buf = mqCat(buf, new Uint8Array(ev.data));
                     while (buf.length >= 2) {
@@ -1877,7 +1912,7 @@
                         const type = buf[0], pk = buf.slice(i, i + rem); buf = buf.slice(i + rem);
                         const kind = type >> 4;
                         if (kind === 2) {
-                            if (pk[1] === 0) { ok = true; clearTimeout(timer); c.ping = setInterval(() => { try { ws.send(new Uint8Array([0xC0, 0])); } catch (e) {} }, 20000); resolve(c); }
+                            if (pk[1] === 0) { ok = true; clearTimeout(timer); c.ping = setInterval(() => { try { ws.send(new Uint8Array([0xC0, 0])); } catch (e) {} }, 25000); resolve(c); }
                             else { clearTimeout(timer); reject(new Error('reddedildi')); }
                         } else if (kind === 9) { const w = c.waits[(pk[0] << 8) | pk[1]]; if (w) w(); }
                         else if (kind === 3) {
@@ -1926,7 +1961,7 @@
                     await R.mq.subscribe(R.subTopic);
                     R.status = 'Hazır — arkadaşların bağlantıyı açınca otomatik katılır';
                     R.hb = setInterval(() => {
-                        Object.values(net.peers).forEach(p => { if (!p.cid) return; p.dc.send(JSON.stringify({ t: 'ping' })); if (Date.now() - p.last > 50000) peerLost(p); });
+                        Object.values(net.peers).forEach(p => { if (!p.cid) return; p.dc.send(JSON.stringify({ t: 'ping', turn: gameState.turn })); if (Date.now() - p.last > 150000) peerLost(p); updatePeersList(); });
                     }, 15000);
                     renderHostPanelIfOpen();
                     return;
@@ -1941,14 +1976,26 @@
             let p; try { p = JSON.parse(msg); } catch (e) { return; }
             if (!p || typeof p.c !== 'string' || !/^[\w-]{4,32}$/.test(p.c)) return;
             let peer = Object.values(net.peers).find(x => x.cid === p.c);
+            const spec = net.specs && net.specs[p.c];
+            if (spec) { relaySpecMsg(spec, p); return; }
             if (peer) peer.last = Date.now();
+            if (p.sync && peer) { peer.dc.send(stateMsg(peer.slot)); return; }
             if (p.hello) {
                 const dn = s => R.mq && R.mq.publish(`senaryo-gh/v1/${R.room}/dn/${p.c}`, s);
                 if (!peer) {
                     const free = activeKeys().filter(k => k !== 'tuna' && !net.peers[k]);
-                    if (!free.length || !gameState) { dn(JSON.stringify({ t: 'full' })); return; }
+                    if (!gameState) { dn(JSON.stringify({ t: 'full' })); return; }
+                    if (!free.length) {
+                        net.specs = net.specs || {};
+                        const sp = net.specs[p.c] = { cid: p.c, last: Date.now(), name: cleanName(p.name) || 'İzleyici', dc: { readyState: 'open', send: dn, close() {} } };
+                        net.role = 'host';
+                        showToast(`${sp.name} izleyici olarak katıldı.`, 'emerald');
+                        dn(stateMsg('spec')); return;
+                    }
                     const slot = free[0];
                     peer = { slot, cid: p.c, open: true, last: Date.now(), dc: { readyState: 'open', send: dn, close() {} } };
+                    peer.pname = cleanName(p.name);
+                    if (peer.pname && !playerKeys().some(o => o !== slot && nameOf(o).toLocaleLowerCase('tr') === peer.pname.toLocaleLowerCase('tr'))) gameState.names = { ...DEF_NAMES, ...gameState.names, [slot]: peer.pname };
                     net.peers[slot] = peer; net.role = 'host'; net.pending = null;
                     showToast(`${nameOf(slot)} bağlandı.`, 'emerald');
                     updateGameUI(); renderHostPanelIfOpen();
@@ -1963,6 +2010,8 @@
         // katılan
         async function relayJoin(codeIn) {
             const room = String(codeIn || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10);
+            const nmEl = document.getElementById('relayName');
+            if (nmEl && nmEl.value.trim()) localStorage.setItem('senaryo_pname', cleanName(nmEl.value));
             if (room.length < 4) { relayStatus('Oda kodunu yaz.'); return; }
             if (net.relay) { if (net.role === 'guest') return; relayStop(); }
             const cid = getCid(), up = relayUp(room);
@@ -1972,7 +2021,7 @@
                 let p = null; try { p = JSON.parse(m); } catch (e) {}
                 if (p && p.t === 'full') { R.reject = 'Oda dolu: boş oyuncu yeri kalmamış.'; return; }
                 if (p && p.t === 'bye') { guestLost(); return; }
-                if (p && p.t === 'ping') return;
+                if (p && p.t === 'ping') { if (p.turn !== undefined && gameState && net.role === 'guest' && p.turn !== gameState.turn && R.mq) R.mq.publish(up, JSON.stringify({ c: cid, sync: 1 })); return; }
                 guestOnMessage(m);
                 if (net.role === 'guest') R.joined = true;
             };
@@ -1983,13 +2032,15 @@
                     R.url = url;
                     R.mq = await mqConnect(url, R.clientId, R.onmsg, () => relayDropped(R));
                     await R.mq.subscribe(R.subTopic);
-                    R.mq.publish(up, JSON.stringify({ c: cid, hello: 1 }));
-                    await waitFor(() => R.joined || R.reject, 4500);
+                    for (let t = 0; t < 3 && !R.joined && !R.reject; t++) {
+                        R.mq.publish(up, JSON.stringify({ c: cid, hello: 1, name: getPname() }));
+                        await waitFor(() => R.joined || R.reject, 2500);
+                    }
                     if (R.joined) {
                         R.hb = setInterval(() => {
                             if (!R.mq) return;
                             R.mq.publish(up, JSON.stringify({ c: cid, ping: 1 }));
-                            if (Date.now() - R.last > 45000) guestLost();
+                            if (Date.now() - R.last > 150000) guestLost();
                         }, 15000);
                         return;
                     }
@@ -2030,7 +2081,7 @@
         }
         function relayHostHtml() {
             const R = net.relay;
-            const conn = Object.keys(net.peers).map(k => `<li class="text-emerald-400">● ${esc(nameOf(k))} bağlı</li>`).join('') || '<li class="text-gray-500">Henüz bağlı oyuncu yok</li>';
+            const conn = peersListHtml();
             const st = R ? R.status : (net.lastRelayError || 'Hazırlanıyor...');
             return `<div class="rounded-lg border border-amber-500/40 bg-amber-500/10 p-3 text-center">
                     <div class="text-[10px] font-mono text-gray-400">ODA KODU</div>
@@ -2039,8 +2090,9 @@
                 </div>
                 <input id="relayLink" readonly value="${esc(relayLink())}" class="w-full mt-2 bg-[#080b0e] border border-gray-700 rounded-lg px-2 py-2 text-[11px] font-mono text-gray-200">
                 <div class="flex gap-2 mt-2"><button onclick="copyText('relayLink')" class="${NB} flex-1 bg-gray-800 border-gray-700 text-gray-200">BAĞLANTIYI KOPYALA</button><button onclick="shareText('relayLink')" class="${NB} flex-1 bg-gray-800 border-gray-700 text-gray-200">PAYLAŞ</button></div>
-                <ul class="text-xs font-mono space-y-1 mt-3">${conn}</ul>
+                <ul id="relayPeers" class="text-xs font-mono space-y-1 mt-3">${conn}</ul>
                 <label class="flex items-center gap-2 text-[11px] font-mono text-gray-300 mt-3"><input type="checkbox" ${net.auto ? 'checked' : ''} onchange="net.auto = this.checked"> Herkes seçince turu otomatik başlat</label>
+                <label class="flex items-center gap-2 text-[11px] font-mono text-gray-300 mt-2"><input type="checkbox" ${gameState && gameState.voteMode ? 'checked' : ''} onchange="setVoteMode(this.checked)"> Ortak oylama (çoğunluğun seçtiği hamleyi herkes yapar)</label>
                 <p class="text-[10px] text-gray-500 mt-2">Arkadaşların bağlantıyı açınca kendiliğinden katılır. Ya da ana menüde ODAYA KATIL → oda kodunu yazar. Oda kodunu bilen herkes katılabilir. Bu sayfayı kapatırsan oyun herkes için durur.</p>`;
         }
         function renderHostPanel() {
@@ -2054,6 +2106,8 @@
             openJoinPanelManual();
             const body = document.getElementById('netBody'), legacy = body.innerHTML;
             body.innerHTML = `<div class="space-y-2">
+                    <label class="block text-[11px] font-mono text-gray-400">Adın (arkadaşların seni böyle görecek):</label>
+                    <input id="relayName" maxlength="16" autocomplete="off" placeholder="ör. Selim" value="${esc(getPname())}" class="w-full bg-[#080b0e] border border-gray-700 rounded-lg px-3 py-2 text-sm font-mono text-gray-100 focus:border-amber-500 focus:outline-none">
                     <label class="block text-[11px] font-mono text-gray-400">Yöneticinin verdiği oda kodunu yaz:</label>
                     <input id="relayCode" maxlength="10" autocapitalize="characters" autocomplete="off" placeholder="ör. K7MZ2P" oninput="this.value = this.value.toUpperCase()" class="w-full bg-[#080b0e] border border-gray-700 rounded-lg px-3 py-2 text-lg tracking-widest text-center font-mono text-amber-300 focus:border-amber-500 focus:outline-none">
                     <button onclick="relayJoin(document.getElementById('relayCode').value)" class="${NB} w-full bg-amber-500 text-gray-950 border-amber-500">KATIL</button>
@@ -2068,7 +2122,7 @@
             if (!c) return;
             openJoinPanel();
             document.getElementById('relayCode').value = c.toUpperCase();
-            relayJoin(c);
+            if (getPname()) relayJoin(c); else relayStatus('Adını yaz ve KATIL’a bas.');
         }
         // ---- paneller ----
         const TA = 'w-full h-24 bg-[#080b0e] border border-gray-700 rounded-lg p-2 text-[11px] font-mono text-gray-200 focus:border-amber-500 focus:outline-none break-all resize-none';
@@ -2183,7 +2237,7 @@
             const cur = nameOf(key);
             const v = (prompt('Yeni isim:', cur) || '').trim().slice(0, 16);
             if (!v || v === cur) return;
-                        if (activeKeys().some(o => o !== key && nameOf(o).toLocaleLowerCase('tr') === v.toLocaleLowerCase('tr'))) { showToast('İki oyuncunun adı aynı olamaz.', 'amber'); return; }
+                        if (playerKeys().some(o => o !== key && nameOf(o).toLocaleLowerCase('tr') === v.toLocaleLowerCase('tr'))) { showToast('İki oyuncunun adı aynı olamaz.', 'amber'); return; }
             gameState.names = { ...DEF_NAMES, ...gameState.names, [key]: v };
             saveToLocalStorage(gameState.saveName, gameState);
             updateGameUI();
@@ -2583,7 +2637,7 @@
                         </div>
                         <div class="text-[11px] font-mono text-sky-300 truncate mt-0.5">${PKEYS.slice(0, pCount).map(k => esc((st.names && st.names[k]) || DEF_NAMES[k])).join(' &amp; ')}</div>
                         <div class="text-[11px] font-mono text-gray-400 truncate">${esc(st.location)}</div>
-                        <div class="text-[10px] font-mono text-gray-500">${esc(st.time)} · TUR ${st.turn || 1} · ${(DIFFS[st.difficulty] || DIFFS.normal).name}${st.over ? ' · SONA ERDİ' : ''}</div>
+                        <div class="text-[10px] font-mono text-gray-500">${esc(st.time)} · TUR ${st.turn || 1} · ${(DIFFS[st.difficulty] || DIFFS.normal).name}${st.goalMode === 'final' ? ' · FİNAL %' + Math.round((st.progress || 0) / GOAL * 100) : ' · SONSUZ'}${st.over ? ' · SONA ERDİ' : ''}</div>
                     </div>
                     <div class="flex items-center gap-1.5 shrink-0">
                         <button type="button" data-save="${encodeURIComponent(saveKey)}" onclick="launchSavedGame(decodeURIComponent(this.dataset.save))" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold transition">
@@ -2889,7 +2943,7 @@
             updateNameLabels();
             if (net.role === 'host') queueBroadcast();
             setWeatherVisuals(gameState.wx || 'overcast', isNightNow());
-            document.getElementById('chatBtn').classList.toggle('hidden', net.role === 'solo');
+            chatDockShow();
             document.getElementById('turnCounterBadge').textContent = `TUR ${gameState.turn}`;
 
             const engBadge = document.getElementById('hudEngineBadge');
@@ -2901,9 +2955,9 @@
                 engBadge.className = "text-[10px] font-mono px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 font-bold";
             }
 
-            activeKeys().forEach(k => {
+            playerKeys().forEach(k => {
                 renderCharacter(k, gameState[k]);
-                renderOptions(k, gameState.currentOptions[k] || []);
+                renderOptions(k, gameState[k].dead ? [] : (gameState.currentOptions[k] || []));
             });
 
             const storyContainer = document.getElementById('storyLog');
@@ -3126,6 +3180,7 @@
             const wp = forceAction(choice) ? bestWeapon(charData) : null;
             if (wp) { fullSuccessChance += wpAtk(wp); choice._weapon = wp.name; }
             fullSuccessChance += D().roll;
+            fullSuccessChance += extraRollMods(charData, choice);
             fullSuccessChance = Math.max(12, Math.min(90, fullSuccessChance));
 
             // Kalan olasılığın %68'i Kısmi Başarı, %32'si Tam Başarısızlık
@@ -3275,6 +3330,7 @@ Mevcut Konum: ${gameState.location} | Zaman: ${gameState.time} | Hava: ${gameSta
 ${keys.map(line).join('\n')}
 
 Zorluk: ${D().name} — ${D().hint}.
+${modeInfo()}
 ${turnNotes.length ? 'Sistem notu (envanterden otomatik düşüldü, tekrar yazma): ' + turnNotes.join(' ') + '\n' : ''}Önceki seçenekler (aynılarını tekrar etme): ${keys.flatMap(k => gameState.currentOptions[k] || []).map(x => x.text).join(' | ')}
 ${wasDil ? 'Önceki tur zor seçimdi; bu tur "dilemma" false olmalı.\n' : ''}
 Kurallar:
@@ -3285,12 +3341,16 @@ Kurallar:
 5. Seçenek sayısı duruma göre 2 ile 5 arasında değişsin (dar, tehlikeli yerlerde 2-3; açık ve zengin ortamlarda 4-5). Yeni seçenekler öncekilerden farklı olsun.
 6. Nadiren (yaklaşık her 8 turda bir) bir "zor seçim" kur: "dilemma": true yap ve her oyuncu için TAM 2 seçenek ver (1. seçenek riskli ama ödüllü, 2. seçenek güvenli ama ödülsüz); anlatımın sonunda ikilemi belirt. Normalde "dilemma": false.
 7. Ara sıra başka hayatta kalanlarla (tüccar, yaralı, keşif ekibi) karşılaştır ve takas/ittifak/uzaklaşma seçenekleri sun; takas olursa eşya değişimini gainItems/loseItems ile bildir.
-8. Yanıtını SADECE geçerli bir JSON objesi olarak ver (başka metin ekleme):
+8. Final modundaysa "progress" alanına bu turdaki hamlelerin tahliye yolunda sağladığı ilerlemeyi yaz (0 ile 3 arası tam sayı); sonsuz modda 0 bırak.
+Önemli bir kişi, söz veya karar olursa "memory" alanına tek cümlelik kısa bir not yaz; yoksa boş bırak.
+Yanıtını SADECE geçerli bir JSON objesi olarak ver (başka metin ekleme):
 {
   "narrative": "Detaylı Türkçe hikaye anlatımı...",
   "location": "",
   "weather": "",
   "dilemma": false,
+  "progress": 0,
+  "memory": "",
 ${keys.map(schema).join(',\n')}
 }`;
 
@@ -3298,6 +3358,8 @@ ${keys.map(schema).join(',\n')}
             const jsonMatch = res.text.match(/\{[\s\S]*\}/);
             if (!jsonMatch) throw new Error("AI yanıtı JSON formatında çözümlenemedi");
             const parsed = JSON.parse(jsonMatch[0]);
+            aiProgress = Math.max(0, Math.min(3, Math.round(Number(parsed.progress) || 0)));
+            pushMemory(parsed.memory);
             keys.forEach(k => applyAiEffects(k, parsed[k + 'Effects']));
             if (typeof parsed.location === 'string' && parsed.location.trim().length > 3 && parsed.location.length < 120) gameState.location = parsed.location.trim();
 
@@ -3499,6 +3561,521 @@ ${keys.map(schema).join(',\n')}
             }
             animateParticles();
         }
+    
+        // ====== EK A: sohbet çubuğu, ses çubuğu, bağlantı dayanıklılığı ======
+        const cleanName = n => String(n || '').replace(/[<>]/g, '').trim().slice(0, 16);
+        const getPname = () => localStorage.getItem('senaryo_pname') || '';
+        function peersListHtml() {
+            const rows = Object.keys(net.peers).map(k => {
+                const p = net.peers[k], ago = p.cid ? Math.round((Date.now() - p.last) / 1000) : 0, warn = p.cid && ago > 30;
+                return `<li class="${warn ? 'text-amber-400' : 'text-emerald-400'}">● ${p.pname && p.pname !== nameOf(k) ? esc(p.pname) + ' → ' : ''}${esc(nameOf(k))} · ${warn ? 'sinyal yok (' + ago + ' sn)' : 'bağlı'}</li>`;
+            });
+            return rows.join('') || '<li class="text-gray-500">Henüz bağlı oyuncu yok</li>';
+        }
+        function updatePeersList() { const ul = document.getElementById('relayPeers'); if (ul) ul.innerHTML = peersListHtml(); }
+        setInterval(updatePeersList, 4000);
+        // sohbet: kalıcı, sütun başlığına tıklayınca kapanır/açılır, mesajlar silinmez
+        let chatHist = [], chatCollapsed = false, chatUnread = 0;
+        try { chatHist = JSON.parse(sessionStorage.getItem('senaryo_chat') || '[]'); } catch (e) {}
+        const chatLine = m => `<div class="text-[11px] font-mono text-gray-200"><span class="text-amber-400">${esc(m.from)}:</span> ${esc(m.text)}</div>`;
+        function chatHead() {
+            const h = document.getElementById('chatHead');
+            if (h) h.innerHTML = `<span><i class="fa-solid fa-comment"></i> SOHBET${chatUnread ? ` <span class="text-amber-400">(${chatUnread} yeni)</span>` : ''}</span><span>${chatCollapsed ? '▲' : '▼'}</span>`;
+        }
+        chatShow = function (from, text) {
+            chatHist.push({ from: String(from), text: String(text) });
+            if (chatHist.length > 300) chatHist.shift();
+            try { sessionStorage.setItem('senaryo_chat', JSON.stringify(chatHist.slice(-100))); } catch (e) {}
+            if (chatCollapsed) { chatUnread++; chatHead(); return; }
+            const log = document.getElementById('chatLog');
+            log.insertAdjacentHTML('beforeend', chatLine(chatHist[chatHist.length - 1])); log.scrollTop = log.scrollHeight;
+        };
+        chatToggle = function () {
+            chatCollapsed = !chatCollapsed;
+            document.getElementById('chatBody').classList.toggle('hidden', chatCollapsed);
+            if (!chatCollapsed) { chatUnread = 0; const log = document.getElementById('chatLog'); log.innerHTML = chatHist.map(chatLine).join(''); log.scrollTop = log.scrollHeight; }
+            chatHead();
+        };
+        function chatDockShow() {
+            const p = document.getElementById('chatPanel'); if (!p) return;
+            if (!p.dataset.dock) {
+                p.dataset.dock = 1;
+                p.className = 'hidden fixed right-3 bottom-20 z-40 w-64 max-w-[78vw] bg-[#10151c]/95 border border-gray-700 rounded-xl shadow-2xl overflow-hidden';
+                const body = document.createElement('div'); body.id = 'chatBody'; body.className = 'p-2';
+                while (p.firstChild) body.appendChild(p.firstChild);
+                const head = document.createElement('button'); head.id = 'chatHead'; head.type = 'button'; head.onclick = () => chatToggle();
+                head.className = 'w-full flex items-center justify-between px-3 py-1.5 text-[11px] font-mono font-bold text-gray-200 bg-[#161e29] border-b border-gray-700';
+                p.appendChild(head); p.appendChild(body);
+                document.getElementById('chatLog').className = 'space-y-1 max-h-28 overflow-y-auto mb-2';
+                const b = document.getElementById('chatBtn'); if (b) b.remove();
+                document.getElementById('chatLog').innerHTML = chatHist.map(chatLine).join('');
+                chatHead();
+            }
+            p.classList.toggle('hidden', net.role === 'solo');
+        }
+        // ses çubuğu: üzerine gelince / dokununca açılır
+        (function () { const b = document.getElementById('soundBtn'); if (b) b.parentNode.id = 'soundWrap'; })();
+        const _ts = toggleSound;
+        toggleSound = function () { _ts(); const w = document.getElementById('soundWrap'); if (!w) return; w.classList.add('show'); clearTimeout(w._t); w._t = setTimeout(() => w.classList.remove('show'), 3000); };
+        // seçmeyen oyuncular yüzünden tur kilitlenmesin
+        const _etA = executeTurn;
+        executeTurn = async function () {
+            if (gameState && !gameState.over && net.role === 'host') {
+                const missing = activeKeys().filter(k => !selectedChoices[k]);
+                if (missing.length) {
+                    let ok = true;
+                    try { ok = confirm(`${missing.map(nameOf).join(', ')} henüz hamle seçmedi. Bu tur dinlenip beklesinler mi?`); } catch (e) {}
+                    if (!ok) return;
+                    missing.forEach(k => { selectedChoices[k] = { id: 'idle_' + k, text: 'Bu tur seçim yapılmadı; dinlenip bekliyor.', type: 'guard' }; });
+                }
+            }
+            return _etA();
+        };
+        // seçim ulaşmadıysa misafir yeniden gönderir
+        const _nsc = netSendChoice;
+        netSendChoice = function (k) {
+            _nsc(k); clearTimeout(net.rt); let n = 0;
+            const chk = () => { if (net.role !== 'guest') return; const c = selectedChoices[k]; if (c && !(net.lastChosen && net.lastChosen[k]) && n++ < 4) { _nsc(k); net.rt = setTimeout(chk, 2500); } };
+            net.rt = setTimeout(chk, 2500);
+        };
+        // arka plandan dönünce bağlantıyı kontrol et
+        document.addEventListener('visibilitychange', () => {
+            const R = net.relay;
+            if (document.hidden || !R || !R.mq || !R.mq.ws) return;
+            if (R.mq.ws.readyState !== 1) relayDropped(R); else if (net.role === 'host') queueBroadcast();
+        });
+        // yönetici üst çubuğunda kaç kişi bağlı
+        const _uguA = updateGameUI;
+        updateGameUI = function () {
+            _uguA();
+            if (net.role === 'host') { const n = Object.keys(net.peers).length, t = Math.max(0, (gameState.playerCount || 1) - 1); const el = document.getElementById('hudSaveName'); if (el) el.textContent += ` · Bağlı ${n}/${t}`; }
+            updatePeersList();
+        };
+    
+        // ====== EK B: finalli mod, ölen oyuncu, roller, kamp, evcil hayvan, rozetler, özet ======
+        const GOAL = 120;
+        const ROLES = ['Doktor', 'Tamirci', 'İzci', 'Savaşçı'];
+        const DISTRICTS = [
+            { name: 'Kadıköy', danger: 0, intro: 'Kadıköy’ün dar sokaklarından çıkıyorsunuz. Tahliye limanı Eminönü’nde; önünüzde uzun bir yol var.' },
+            { name: 'Üsküdar', danger: 2, intro: 'Üsküdar sahiline vardınız. Boğaz’ın karşısında tahliye limanının ışıkları seçiliyor; kalabalık azaldı ama su basmış sokaklar ve sis var.' },
+            { name: 'Beşiktaş', danger: 4, intro: 'Beşiktaş’a girdiniz. Çarşı’nın kalabalığı enfekte sürülerine dönüşmüş; her köşe tehlikeli.' },
+            { name: 'Karaköy', danger: 5, intro: 'Karaköy’ün dar sokakları ve eski depoları arasındasınız. Galata’nın gölgesinde tahliye hattı birkaç sokak ötede.' },
+            { name: 'Eminönü', danger: 6, intro: 'Eminönü iskelesindesiniz! Tahliye teknesi son hazırlıkta ama bütün şehir sizi fark etmiş gibi.' }
+        ];
+        let turnRolls = {}, aiProgress = null, pendingExtras = null, wizardGoal = 'final', voteNote = null;
+        const distIdx = p => Math.min(DISTRICTS.length - 1, Math.floor(p / (GOAL / DISTRICTS.length)));
+        const campActive = () => !!(gameState && gameState.camp && gameState.turn <= gameState.camp);
+        const roleOf = k => (gameState && gameState[k] && gameState[k].role) || null;
+        const keyOfChar = c => PKEYS.find(k => gameState && gameState[k] === c);
+        function ensureState(st) {
+            if (!st) return st;
+            st.goalMode = st.goalMode || 'endless';
+            if (typeof st.progress !== 'number') st.progress = 0;
+            st.badges = st.badges || []; st.memory = st.memory || [];
+            st.stats = st.stats || {};
+            const S = st.stats;
+            ['risk', 'loot', 'help'].forEach(f => { S[f] = S[f] || {}; PKEYS.forEach(k => { if (typeof S[f][k] !== 'number') S[f][k] = 0; }); });
+            ['found', 'crafted', 'camps', 'night', 'storm', 'noInj'].forEach(f => { if (typeof S[f] !== 'number') S[f] = 0; });
+            return st;
+        }
+        function extraRollMods(c, choice) {
+            if (!gameState || !c) return 0;
+            const role = c.role, t = choice && choice.type; let m = 0;
+            if (role === 'İzci' && t === 'scout') m += 5;
+            if (role === 'Savaşçı' && ['breach', 'risky_loot', 'scavenge_weapon'].includes(t)) m += 5;
+            if (role === 'Tamirci' && ['scavenge_weapon', 'risky_loot'].includes(t)) m += 3;
+            if (role === 'Doktor' && t === 'guard') m += 3;
+            if (gameState.pet && t === 'scout') m += 3;
+            if (gameState.goalMode === 'final' && !gameState.siege) m -= DISTRICTS[distIdx(gameState.progress || 0)].danger;
+            if (isNightNow() && !campActive() && t !== 'guard') m -= (role === 'İzci' ? 2 : 6);
+            return m;
+        }
+        // zar sonuçlarını yakala
+        const _rtB = rollThreeTierOutcome;
+        rollThreeTierOutcome = function (c, ch) { const r = _rtB(c, ch); const k = keyOfChar(c); if (k) turnRolls[k] = r; return r; };
+        // eşya istatistikleri ve roller
+        const _lfB = lootFor;
+        lootFor = function (charName, c, choice, roll, notes) {
+            const n0 = notes.length; _lfB(charName, c, choice, roll, notes);
+            const d = notes.length - n0, k = keyOfChar(c);
+            if (d > 0 && gameState && k) { ensureState(gameState); gameState.stats.found += d; gameState.stats.loot[k] += d; }
+            if (c && c.role === 'Tamirci' && roll.code === 'FULL_SUCCESS' && choice.type === 'scavenge_weapon') { const it = pickOne(LOOT.tool); if (addItem(c, { ...it })) notes.push(`${charName}: ${baseName(it.name)} buldu (Tamirci ekstra parça).`); }
+        };
+        let __actor = null;
+        const _uiiB = useInventoryItem;
+        useInventoryItem = function (charKey, idx, tgt) { __actor = charKey; try { const before = gameState[charKey].inventory.length; _uiiB(charKey, idx, tgt); if (tgt && tgt !== charKey && gameState.stats) gameState.stats.help[charKey]++; } finally { __actor = null; } };
+        const _gvB = giveItem;
+        giveItem = function (charKey, idx, tgt) { const n0 = gameState[charKey].inventory.reduce((a, i) => a + qtyOf(i.name), 0); _gvB(charKey, idx, tgt); const n1 = gameState[charKey].inventory.reduce((a, i) => a + qtyOf(i.name), 0); if (n1 < n0 && gameState.stats) gameState.stats.help[charKey]++; };
+        const _aieB = applyItemEffect;
+        applyItemEffect = function (who, item) {
+            const msg = _aieB(who, item);
+            const actor = __actor || who;
+            if (msg && /sarıldı/.test(msg) && gameState[actor] && gameState[actor].role === 'Doktor') {
+                const c = gameState[who]; c.health = Math.min(100, c.health + 8);
+                c.medical.filter(m => m.treated).forEach(m => { m.turnsLeft = Math.min(m.turnsLeft, 2); });
+                return msg + ' (Doktor: +8 sağlık)';
+            }
+            return msg;
+        };
+        const _crB = craftItem;
+        craftItem = function (k, idx) {
+            const sig = () => gameState[k].inventory.map(i => i.name).join('|'), b = sig();
+            _crB(k, idx);
+            if (sig() !== b && gameState.stats) {
+                gameState.stats.crafted++;
+                if (gameState[k].role === 'Tamirci' && Math.random() < .5) { const it = pickOne(LOOT.med.concat(LOOT.food)); if (addItem(gameState[k], { ...it })) showToast(`Tamirci: artan parçalardan ${baseName(it.name)} çıktı.`, 'emerald'); }
+            }
+        };
+        // ölüm: oyuncu elenir, eşyaları paylaşılır; herkes ölünce hikâye biter
+        checkGameOver = function () {
+            const st = gameState, all = playerKeys();
+            all.filter(k => !st[k].dead && st[k].health <= 0).forEach(k => {
+                const c = st[k]; c.dead = true; c.health = 0;
+                const heirs = all.filter(o => !st[o].dead);
+                c.inventory.forEach(it => { const q = qtyOf(it.name); for (let i = 0; i < q && heirs.length; i++) addItem(st[heirs[i % heirs.length]], { ...it, name: baseName(it.name), weight: +(it.weight / q).toFixed(2) }); });
+                c.inventory = []; selectedChoices[k] = null; st.currentOptions[k] = [];
+                st.history.push({ title: `TUR ${st.turn} — KAYIP`, text: `${nameOf(k)} yaşamını yitirdi.${heirs.length ? ' Eşyaları hayatta kalanlara kaldı.' : ''}` });
+                showToast(`${nameOf(k)} öldü.`, 'amber');
+            });
+            if (all.every(k => st[k].dead)) {
+                if (!st.over) st.history.push({ title: `TUR ${st.turn} — SON`, text: 'Hiç kimse bu şehirden sağ çıkamadı. Hikâye burada sona erdi.' });
+                st.over = true; st.won = false; return true;
+            }
+            return false;
+        };
+        // ---- evcil hayvan ----
+        function petStep(ch, notes) {
+            const st = gameState;
+            if (!st.pet) {
+                playerKeys().forEach(k => {
+                    const c = ch[k]; if (!c || !c.pet || st.pet) return;
+                    const r = turnRolls[k]; if (!r || r.code === 'FAILURE') return;
+                    const fi = st[k].inventory.findIndex(i => i.effect === 'food');
+                    if (fi < 0) { notes.push(`[EVCİL] ${nameOf(k)} hayvana verecek yiyecek bulamadı.`); return; }
+                    takeOne(st[k], fi);
+                    st.pet = { type: c.pet, name: pickOne(c.pet === 'Köpek' ? ['Pamuk', 'Karabaş', 'Çomar', 'Zeytin'] : ['Mırmır', 'Tekir', 'Duman', 'Fındık']), last: st.turn, missed: 0 };
+                    notes.push(`[EVCİL] ${st.pet.type} ${st.pet.name} grubunuza katıldı! Tehlikeyi sezer, keşiflerde yardım eder; ama düzenli beslenmesi gerekir.`);
+                });
+                return;
+            }
+            const p = st.pet;
+            if (st.turn - p.last >= 6) {
+                const donor = activeKeys().find(k => st[k].inventory.some(i => i.effect === 'food'));
+                if (donor) { takeOne(st[donor], st[donor].inventory.findIndex(i => i.effect === 'food')); p.last = st.turn; p.missed = 0; notes.push(`[EVCİL] ${nameOf(donor)}, ${p.name}’i besledi.`); }
+                else {
+                    p.missed++; p.last = st.turn - 3; notes.push(`[EVCİL] ${p.name} aç; yiyecek bulunamadı.`);
+                    if (p.missed >= 3) { notes.push(`[EVCİL] ${p.name} yiyecek bulamayıp gruptan ayrıldı.`); st.pet = null; }
+                }
+            }
+        }
+        // ---- final modu: ilerleme, bölgeler, son direniş ----
+        function enterDistrict(i, notes) {
+            const st = gameState, d = DISTRICTS[i];
+            st.location = `İstanbul / ${d.name} (Ara Sokaklar)`;
+            st.history.push({ title: `YENİ BÖLGE: ${d.name.toLocaleUpperCase('tr')}`, text: d.intro });
+            activeKeys().forEach(k => { const it = pickOne(LOOT[pickOne(['food', 'water', 'med', 'tool'])]); addItem(st[k], { ...it }); });
+            notes.push(`[BÖLGE] ${d.name}’e ulaştınız. Kontrol noktasında herkes bir ikmal buldu.`);
+        }
+        const SIEGE_CARDS = [
+            { t: 'Barikatta sağlam bir pozisyon alıp dalgayı karşılamak.', type: 'guard', siege: 'hold' },
+            { t: 'Dalganın yan tarafına çıkıp karşı saldırı yapmak.', type: 'breach', siege: 'attack', risk: 'high' },
+            { t: 'Yaralılara bakıp savunma hattını onarmak.', type: 'guard', siege: 'support' },
+            { t: 'Barikatın önüne tuzak ve engeller kurmak.', type: 'guard', siege: 'hold' },
+            { t: 'Yüksek bir noktadan dalgayı gözleyip hedefleri işaretlemek.', type: 'scout', siege: 'hold' }
+        ];
+        function pickSiegeCards(k) {
+            const base = [SIEGE_CARDS[0], SIEGE_CARDS[1], SIEGE_CARDS[2]], r = roleOf(k);
+            if (r === 'İzci') base.push(SIEGE_CARDS[4]); else if (r === 'Tamirci') base.push(SIEGE_CARDS[3]);
+            return base.map((c, i) => ({ id: `${k}_s_${gameState.turn}_${i}`, text: c.t, type: c.type, siege: c.siege, ...(c.risk ? { risk: c.risk } : {}) }));
+        }
+        function startSiege(notes) {
+            const st = gameState;
+            st.siege = { wave: 0, max: 9 };
+            st.wx = 'storm'; st.weather = wxText('storm', hourOf());
+            st.location = 'İstanbul / Eminönü (Tahliye Limanı Barikatı)';
+            st.history.push({ title: 'SON DİRENİŞ BAŞLADI', text: 'Eminönü iskelesine ulaştınız! Tahliye teknesi 9 dalga sonra yanaşacak. O zamana kadar barikatı tutmalısınız: savunun, onarın ve hayatta kalın.' });
+            notes.push('[FİNAL] Son direniş başladı: 9 dalga boyunca hattı tutun.');
+            st.currentOptions = buildNextOptions();
+        }
+        function siegeStep(ch, notes) {
+            const st = gameState, keys = Object.keys(turnRolls).filter(k => !st[k].dead || ch[k]);
+            let pts = 0;
+            keys.forEach(k => {
+                const c = ch[k] || {}, r = turnRolls[k], role = roleOf(k), ok = r.code !== 'FAILURE';
+                let p = r.code === 'FULL_SUCCESS' ? 2 : r.code === 'PARTIAL_SUCCESS' ? 1 : 0;
+                if (c.siege === 'attack') p = r.code === 'FULL_SUCCESS' ? 3 : r.code === 'PARTIAL_SUCCESS' ? 1 : -1;
+                if (c.siege === 'support' && ok) { const w = activeKeys().sort((a, b) => st[a].health - st[b].health)[0]; if (w) st[w].health = Math.min(100, st[w].health + (role === 'Doktor' ? 14 : 8)); }
+                if (role === 'Savaşçı' && (c.siege === 'hold' || c.siege === 'attack') && r.code === 'FULL_SUCCESS') p += 1;
+                if (role === 'Tamirci' && c.siege === 'hold' && ok) p += 1;
+                if (role === 'Doktor' && c.siege === 'support' && r.code === 'FULL_SUCCESS') p += 1;
+                pts += p;
+            });
+            const scout = keys.some(k => roleOf(k) === 'İzci' && !st[k].dead);
+            const need = Math.max(1, Math.ceil(keys.length * (st.siege.wave >= st.siege.max - 2 ? 1.3 : 1)) - (scout ? 1 : 0));
+            const w = st.siege.wave + 1;
+            if (pts >= need) notes.push(`[DALGA ${w}/${st.siege.max}] Dalga püskürtüldü.`);
+            else {
+                activeKeys().forEach(k => { st[k].health = Math.max(0, st[k].health - Math.round((8 + w) * D().dmg)); if (Math.random() < .4) addInjury(st[k], pickOne(['Derin Kesik', 'Kaburga Çürüğü', 'Omuz Zorlanması']), 4); });
+                notes.push(`[DALGA ${w}/${st.siege.max}] Hat yarıldı! Herkes yara aldı.`);
+            }
+            st.siege.wave = w;
+            checkGameOver();
+            if (st.over) return;
+            if (w >= st.siege.max) {
+                const alive = activeKeys();
+                st.won = true; st.over = true;
+                st.history.push({ title: 'TAHLİYE', text: `Şafakla birlikte tahliye teknesi iskeleye yanaştı. ${alive.map(nameOf).join(', ')} güverteye çıktı; İstanbul geride kaldı. Hayatta kalanlar: ${alive.length}/${playerKeys().length}.` });
+                notes.push('[FİNAL] TAHLİYE BAŞARILI!');
+            } else st.currentOptions = buildNextOptions();
+        }
+        function finalStep(ch, notes) {
+            const st = gameState, keys = Object.keys(turnRolls);
+            if (!keys.length) return;
+            if (st.siege) { siegeStep(ch, notes); return; }
+            let sum = 0;
+            keys.forEach(k => {
+                const c = ch[k] || {}, r = turnRolls[k];
+                if (c.prog) { sum += r.code === 'FULL_SUCCESS' ? 3 : r.code === 'PARTIAL_SUCCESS' ? 1.5 : 0; if (roleOf(k) === 'İzci' && r.code === 'FULL_SUCCESS') sum += 1; }
+                else if (c.type === 'scout') sum += r.code === 'FULL_SUCCESS' ? 1 : r.code === 'PARTIAL_SUCCESS' ? .5 : 0;
+            });
+            let gain = sum / keys.length * (1 + .1 * (keys.length - 1));
+            if (st.mode === 'online' && aiProgress !== null) gain = aiProgress * 1.4;
+            aiProgress = null;
+            if (gain <= 0) return;
+            const old = st.progress; st.progress = Math.min(GOAL, st.progress + gain);
+            for (let i = distIdx(old) + 1; i <= distIdx(st.progress); i++) enterDistrict(i, notes);
+            notes.push(`[İLERLEME] Tahliye yolunda %${Math.round(st.progress / GOAL * 100)}`);
+            if (st.progress >= GOAL) startSiege(notes);
+        }
+        // ---- rozetler, skor, özet ----
+        const BADGES = [
+            ['ilk_silah', 'İlk Silah', 'Bir mızrak üret', st => playerKeys().some(k => st[k].inventory.some(i => /Mızrak/.test(i.name)))],
+            ['yarasiz', 'Yarasız 25 Tur', '25 tur boyunca kimse yara almasın', st => st.stats.noInj >= 25],
+            ['kalabalik', 'Kalabalık Grup', '3 müttefik edin', st => (st.allies || 0) >= 3],
+            ['evcil', 'Dört Ayaklı Dost', 'Bir hayvanı sahiplen', st => !!st.pet],
+            ['firtina', 'Fırtına Avcısı', 'Fırtınada 10 tur dayan', st => st.stats.storm >= 10],
+            ['gece', 'Gece Kuşu', 'Gece 20 tur hayatta kal', st => st.stats.night >= 20],
+            ['atolye', 'Atölye', '5 eşya üret', st => st.stats.crafted >= 5],
+            ['cesur', 'Gözü Kara', '10 riskli hamle yap', st => Object.values(st.stats.risk).reduce((a, b) => a + b, 0) >= 10],
+            ['kamp', 'Kamp Ustası', '3 kez kamp kur', st => st.stats.camps >= 3],
+            ['bolluk', 'Bolluk', 'Grupta toplam 25 eşya biriktir', st => playerKeys().reduce((a, k) => a + st[k].inventory.reduce((x, i) => x + qtyOf(i.name), 0), 0) >= 25],
+            ['yardim', 'Yardımsever', 'Yoldaşlarına 8 kez yardım et', st => Object.values(st.stats.help).reduce((a, b) => a + b, 0) >= 8],
+            ['yarim', 'Yarı Yol', 'Final modunda yolun yarısına ulaş', st => st.goalMode === 'final' && st.progress >= GOAL / 2],
+            ['tahliye', 'Tahliye!', 'Tahliye teknesine bin', st => !!st.won]
+        ];
+        function checkBadges(notes) {
+            BADGES.forEach(([id, name, , f]) => { if (!gameState.badges.includes(id) && f(gameState)) { gameState.badges.push(id); notes.push(`[ROZET] ${name}`); showToast(`Rozet kazanıldı: ${name}`, 'emerald'); } });
+        }
+        function openBadges() {
+            const st = gameState; ensureState(st);
+            netModal('ROZETLER', BADGES.map(([id, name, desc]) => { const got = st.badges.includes(id); return `<div class="flex items-center justify-between py-1.5 border-b border-gray-800 text-xs font-mono"><span class="${got ? 'text-amber-300' : 'text-gray-500'}">${got ? '★' : '☆'} ${name}</span><span class="text-[10px] text-gray-500">${desc}</span></div>`; }).join(''));
+        }
+        function calcScore(st) {
+            ensureState(st);
+            const alive = playerKeys().filter(k => !st[k].dead).length;
+            return Math.round(st.day * 50 + st.turn * 5 + st.progress * 10 + alive * 300 + st.badges.length * 100 + (st.won ? 2000 : 0) + st.stats.found * 5);
+        }
+        function loadScores() { try { return JSON.parse(localStorage.getItem('senaryo_scores') || '[]'); } catch (e) { return []; } }
+        function saveScore(st) {
+            if (st.scoreSaved || net.role === 'guest') return;
+            st.scoreSaved = true;
+            const list = loadScores(); list.push({ score: calcScore(st), mode: st.goalMode === 'final' ? (st.won ? 'Final ✓' : 'Final') : 'Sonsuz', days: st.day, who: playerKeys().map(nameOf).join(', ').slice(0, 30) });
+            list.sort((a, b) => b.score - a.score);
+            try { localStorage.setItem('senaryo_scores', JSON.stringify(list.slice(0, 5))); } catch (e) {}
+        }
+        function summaryText(st) {
+            const alive = playerKeys().filter(k => !st[k].dead);
+            return `Senaryo — ${st.won ? 'TAHLİYE BAŞARILI' : 'HİKÂYE BİTTİ'}\n${st.goalMode === 'final' ? 'Final modu' : 'Sonsuz mod'} · ${D().name}\n${st.day}. gün · ${st.turn - 1} tur · Skor ${calcScore(st)}\nHayatta kalanlar: ${alive.map(nameOf).join(', ') || 'yok'}\nRozetler: ${st.badges.map(id => (BADGES.find(b => b[0] === id) || [])[1]).filter(Boolean).join(', ') || 'yok'}`;
+        }
+        function showSummary() {
+            const st = gameState; if (!st) return; ensureState(st);
+            let m = document.getElementById('summaryModal');
+            if (!m) { m = document.createElement('div'); m.id = 'summaryModal'; m.className = 'fixed inset-0 z-50 hidden flex items-start justify-center p-3 bg-black/90 backdrop-blur-sm overflow-y-auto'; document.body.appendChild(m); }
+            const keys = playerKeys(), won = !!st.won;
+            const best = (f, label) => { const e = keys.map(k => [k, st.stats[f][k] || 0]).sort((a, b) => b[1] - a[1])[0]; return e && e[1] > 0 ? `<li>${label}: <b class="text-amber-300">${esc(nameOf(e[0]))}</b> (${e[1]})</li>` : ''; };
+            const rows = keys.map(k => `<div class="flex items-center justify-between text-xs font-mono py-1 border-b border-gray-800"><span class="${st[k].dead ? 'text-gray-500' : 'text-gray-100'}">${esc(nameOf(k))}${st[k].role ? ' · ' + esc(st[k].role) : ''}</span><span class="${st[k].dead ? 'text-red-400' : 'text-emerald-400'}">${st[k].dead ? 'öldü' : 'hayatta'}</span></div>`).join('');
+            const badges = st.badges.map(id => { const b = BADGES.find(x => x[0] === id); return b ? `<span class="inline-block px-2 py-0.5 m-0.5 rounded border border-amber-500/40 bg-amber-500/10 text-amber-300 text-[10px] font-mono">${b[1]}</span>` : ''; }).join('') || '<span class="text-[11px] text-gray-500">Rozet kazanılmadı</span>';
+            saveScore(st);
+            const top = loadScores().map((x, i) => `<li>${i + 1}. ${x.score} · ${esc(x.mode)} · ${x.days}. gün · ${esc(x.who)}</li>`).join('');
+            m.innerHTML = `<div class="max-w-md w-full my-4 bg-[#10151c] border ${won ? 'border-emerald-500/50' : 'border-red-500/40'} rounded-xl p-5 fade-up">
+                <div class="text-center"><i class="fa-solid ${won ? 'fa-ship text-emerald-400' : 'fa-skull text-red-500'} text-4xl mb-2"></i>
+                <h3 class="text-xl font-extrabold tracking-widest text-white">${won ? 'TAHLİYE BAŞARILI' : 'HİKÂYE BİTTİ'}</h3>
+                <p class="text-xs font-mono text-gray-400 mt-1">${st.goalMode === 'final' ? 'Final modu' : 'Sonsuz mod'} · ${D().name} · ${st.day}. gün · ${st.turn - 1} tur</p>
+                <p class="text-3xl font-mono font-extrabold text-amber-400 mt-2">${calcScore(st)} <span class="text-xs text-gray-400">puan</span></p></div>
+                <div class="mt-3">${rows}</div>
+                <ul class="mt-3 text-[11px] font-mono text-gray-300 space-y-0.5">${best('risk', 'En cesur')}${best('loot', 'En çok eşya bulan')}${best('help', 'En yardımsever')}<li>Bulunan eşya: ${st.stats.found} · Üretilen: ${st.stats.crafted} · Kamp: ${st.stats.camps}</li></ul>
+                <div class="mt-3"><div class="text-[10px] font-mono text-gray-500 mb-1">ROZETLER</div>${badges}</div>
+                ${top ? `<div class="mt-3"><div class="text-[10px] font-mono text-gray-500 mb-1">EN İYİ SKORLAR (bu cihazda)</div><ul class="text-[11px] font-mono text-gray-300">${top}</ul></div>` : ''}
+                <div class="mt-4 grid grid-cols-3 gap-2 font-mono text-[11px]">
+                    <button onclick="copySummary()" class="py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-200">ÖZETİ KOPYALA</button>
+                    <button onclick="closeSummary()" class="py-2 rounded-lg bg-gray-800 border border-gray-700 text-gray-200">KAYDI İNCELE</button>
+                    <button onclick="closeSummary(); returnToMainMenu()" class="py-2 rounded-lg bg-amber-500 text-gray-950 font-bold">ANA MENÜ</button>
+                </div></div>`;
+            m.classList.remove('hidden');
+        }
+        function closeSummary() { const m = document.getElementById('summaryModal'); if (m) m.classList.add('hidden'); }
+        function copySummary() { const t = summaryText(gameState); try { navigator.clipboard.writeText(t).then(() => showToast('Özet kopyalandı.', 'emerald')); } catch (e) { showToast('Kopyalanamadı.', 'amber'); } }
+        showGameOver = function () { showSummary(); };
+        // ---- tur sonrası ----
+        function postTurn(ch) {
+            const st = gameState; if (net.role === 'guest') return;
+            ensureState(st);
+            const keys = Object.keys(turnRolls), notes = [];
+            if (voteNote) { notes.push(`[OYLAMA] Çoğunluk kararı: “${voteNote}”`); voteNote = null; }
+            keys.forEach(k => { const c = ch[k]; if (c && c.risk === 'high') st.stats.risk[k]++; });
+            st.stats.noInj = playerKeys().some(k => !st[k].dead && st[k].medical.length) ? 0 : st.stats.noInj + 1;
+            if (isNightNow()) st.stats.night++;
+            if (st.wx === 'storm') st.stats.storm++;
+            if (keys.some(k => ch[k] && ch[k].camp && turnRolls[k].code !== 'FAILURE') && !campActive()) { st.camp = st.turn + 4; st.stats.camps++; notes.push('[KAMP] Güvenli bir yer hazırlandı: 4 tur boyunca gece tehlikesi azalır, dinlenme artar.'); }
+            if (campActive()) activeKeys().forEach(k => { st[k].stamina = Math.min(100, st[k].stamina + 4); });
+            petStep(ch, notes);
+            if (st.goalMode === 'final' && !st.over) finalStep(ch, notes);
+            checkBadges(notes);
+            if (notes.length) { const h = st.history[st.history.length - 1]; if (h) h.text += '\n\n' + notes.join('\n'); }
+            saveToLocalStorage(st.saveName, st);
+            updateGameUI();
+            if (st.over) setTimeout(showGameOver, 700);
+        }
+        function applyVote(keys) {
+            const tally = {}; keys.forEach(k => { const t = selectedChoices[k].text; tally[t] = (tally[t] || 0) + 1; });
+            const top = Math.max(...Object.values(tally)), win = pickOne(Object.keys(tally).filter(t => tally[t] === top));
+            keys.forEach(k => { const o = (gameState.currentOptions[k] || []).find(x => x.text === win); if (o) selectedChoices[k] = o; });
+            voteNote = win;
+        }
+        const _etB = executeTurn;
+        executeTurn = async function () {
+            if (!gameState || gameState.over || net.role === 'guest') return _etB();
+            ensureState(gameState);
+            const keys = activeKeys();
+            if (gameState.voteMode && keys.length > 1 && keys.every(k => selectedChoices[k])) applyVote(keys);
+            const ch = {}; keys.forEach(k => { ch[k] = selectedChoices[k]; });
+            const t0 = gameState.turn; turnRolls = {};
+            await _etB();
+            if (gameState.turn === t0) return;
+            postTurn(ch);
+        };
+        function setVoteMode(on) {
+            gameState.voteMode = !!on;
+            const keys = activeKeys();
+            if (on && keys.length > 1) { const base = gameState.currentOptions[keys[0]] || []; keys.slice(1).forEach(k => { gameState.currentOptions[k] = base.map(o => ({ ...o, id: o.id.replace(/^[a-z0-9]+_/, k + '_') })); selectedChoices[k] = null; }); }
+            queueBroadcast(); updateGameUI();
+        }
+        // seçenek üretimi: kuşatma, oylama, ölü oyuncular
+        const _bnoB = buildNextOptions;
+        buildNextOptions = function () {
+            ensureState(gameState);
+            const keys = activeKeys(); let res;
+            if (gameState.siege) { res = {}; keys.forEach(k => { res[k] = pickSiegeCards(k); }); gameState.dilemma = false; }
+            else {
+                res = _bnoB();
+                if (gameState.voteMode && keys.length > 1) { const base = res[keys[0]] || []; keys.slice(1).forEach(k => { res[k] = base.map(o => ({ ...o, id: o.id.replace(/^[a-z0-9]+_/, k + '_') })); }); }
+            }
+            PKEYS.forEach(k => { if (gameState[k] && gameState[k].dead) res[k] = []; });
+            return res;
+        };
+        OPT_POOL.push(
+            o('Tahliye limanına giden ana yolu takip ederek bir sonraki sokağa kadar ilerlemek.', 'scout', { prog: true }),
+            o('Sahil yolunu izleyip iskeleye doğru temkinli bir ilerleyiş yapmak.', 'scout', { prog: true, loc: 'st' }),
+            o('Köprü ve alt geçit çıkışlarını yoklayıp bir sonraki mahalleye geçiş aramak.', 'scout', { prog: true, loc: 'st' }),
+            o('Radyodaki tahliye anonsunu takip edip belirtilen yöne yürümek.', 'scout', { prog: true }),
+            o('Kalabalık caddeleri atlayıp ara sokaklardan hedef istikametinde yol almak.', 'scout', { prog: true, loc: 'st' }),
+            o('Güvenli bir köşeye kamp kurup nöbetleşe dinlenmek ve gücünü toplamak.', 'guard', { camp: true }),
+            o('Yakınlarda dolaşan aç bir sokak köpeğini yiyecekle ikna edip yanına almak.', 'scout', { pet: 'Köpek' }),
+            o('Çatıdaki yavru kediye bir parça yiyecek verip yanına almak.', 'scout', { pet: 'Kedi' })
+        );
+        // ---- izleyiciler ----
+        function chatToPeers(from, text) { Object.values(net.peers).forEach(p => { if (p.dc.readyState === 'open') p.dc.send(JSON.stringify({ t: 'chat', from, text })); }); }
+        function chatToSpecs(from, text, except) { Object.values(net.specs || {}).forEach(s => { if (s.cid !== except) s.dc.send(JSON.stringify({ t: 'chat', from, text })); }); }
+        function relaySpecMsg(spec, p) {
+            spec.last = Date.now();
+            if (p.bye) { delete net.specs[spec.cid]; return; }
+            if (p.hello || p.sync) { spec.dc.send(stateMsg('spec')); return; }
+            if (typeof p.d !== 'string') return;
+            try { const m = JSON.parse(p.d); const tx = String(m.text || '').trim().slice(0, 100); if (m.t === 'chat' && tx) { chatShow(spec.name, tx); chatToPeers(spec.name, tx); chatToSpecs(spec.name, tx, spec.cid); } } catch (e) {}
+        }
+        const _bsB = broadcastState;
+        broadcastState = function () { _bsB(); Object.values(net.specs || {}).forEach(s => s.dc.send(stateMsg('spec'))); };
+        const _csB = chatSend;
+        chatSend = function (t) { _csB(t); const tx = String(t || '').trim().slice(0, 100); if (tx && net.role === 'host') chatToSpecs(nameOf('tuna'), tx); };
+        const _rsB = relayStop;
+        relayStop = function () { const R = net.relay; if (R && R.role === 'host') Object.values(net.specs || {}).forEach(s => s.dc.send('{"t":"bye"}')); net.specs = {}; _rsB(); };
+        setInterval(() => { if (net.relay && net.relay.role === 'host') Object.values(net.specs || {}).forEach(s => { s.dc.send(JSON.stringify({ t: 'ping', turn: gameState.turn })); if (Date.now() - s.last > 150000) delete net.specs[s.cid]; }); }, 15000);
+        // ---- yapay zekâ bağlamı ----
+        function pushMemory(x) { const t = String(x || '').trim().slice(0, 160); if (!t || !gameState) return; ensureState(gameState); gameState.memory.push(t); if (gameState.memory.length > 14) gameState.memory.shift(); }
+        function modeInfo() {
+            const st = gameState; ensureState(st); const lines = [];
+            lines.push(st.goalMode === 'final' ? `Oyun modu: FİNALLİ — hedef Eminönü tahliye limanı. Bölge: ${DISTRICTS[distIdx(st.progress)].name}, ilerleme %${Math.round(st.progress / GOAL * 100)}.${st.siege ? ` SON DİRENİŞ: kuşatma dalgası ${st.siege.wave + 1}/${st.siege.max} sürüyor; seçenekler savunma odaklı olsun.` : ''}` : 'Oyun modu: SONSUZ — hedefsiz hayatta kalma.');
+            lines.push('Roller: ' + playerKeys().map(k => `${nameOf(k)} (${st[k].dead ? 'ÖLÜ' : (st[k].role || 'rolsüz')})`).join(', ') + '.');
+            if (st.pet) lines.push(`Evcil hayvan: ${st.pet.type} ${st.pet.name}.`);
+            if (campActive()) lines.push('Grup kampta (gece tehlikesi azaldı).'); else if (isNightNow()) lines.push('Şu an gece; sokaklar daha tehlikeli.');
+            if (st.memory.length) lines.push('Hafıza notları: ' + st.memory.join(' | '));
+            return lines.join('\n');
+        }
+        // ---- ek arayüz ----
+        function ensureGoalPanel() {
+            if (document.getElementById('goalPanel')) return;
+            const cs = document.getElementById('centerStorySection'); if (!cs) return;
+            cs.insertAdjacentHTML('afterbegin', '<div id="goalPanel" class="bg-[#10151c] border border-gray-800 rounded-xl p-3"></div>');
+        }
+        function renderGoalPanel() {
+            const st = gameState, el = document.getElementById('goalPanel'); if (!el) return;
+            let html;
+            if (st.goalMode === 'final') {
+                const pct = Math.round(st.progress / GOAL * 100), di = distIdx(st.progress), mx = 20 + Math.min(1, st.progress / GOAL) * 260;
+                html = `<div class="flex items-center justify-between text-[10px] font-mono mb-1"><span class="text-amber-400 font-bold">TAHLİYE YOLU · ${esc(DISTRICTS[di].name.toLocaleUpperCase('tr'))}</span><span class="text-gray-300">%${pct}</span></div>
+                    <svg viewBox="0 0 300 42" class="w-full" aria-label="Tahliye yolu haritası"><line x1="20" y1="16" x2="280" y2="16" stroke="#374151" stroke-width="3" stroke-linecap="round"/><line x1="20" y1="16" x2="${mx}" y2="16" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>${DISTRICTS.map((d, i) => `<circle cx="${20 + i * 65}" cy="16" r="5" fill="${i <= di ? '#f59e0b' : '#1f2937'}" stroke="#f59e0b" stroke-width="1.5"/><text x="${20 + i * 65}" y="37" font-size="8" fill="#9ca3af" text-anchor="middle">${d.name}</text>`).join('')}<circle cx="${mx}" cy="16" r="3" fill="#fff"/></svg>
+                    ${st.siege ? `<div class="mt-1 text-[11px] font-mono text-red-400 font-bold">SON DİRENİŞ · DALGA ${Math.min(st.siege.wave + 1, st.siege.max)}/${st.siege.max}</div>` : ''}`;
+            } else html = `<div class="flex items-center justify-between text-[10px] font-mono"><span class="text-sky-400 font-bold">SONSUZ MOD</span><span class="text-gray-400">${st.day}. gün · skor ${calcScore(st)}</span></div>`;
+            html += `<div class="flex items-center justify-between mt-1.5 text-[10px] font-mono text-gray-400"><span>${campActive() ? 'KAMP aktif' : (isNightNow() ? 'Gece: tehlike yüksek' : 'Gündüz')}${st.pet ? ` · ${esc(st.pet.type)}: ${esc(st.pet.name)}` : ''}</span><button type="button" onclick="openBadges()" class="px-2 py-0.5 rounded border border-gray-700 text-gray-300">ROZETLER (${st.badges.length})</button></div>`;
+            el.innerHTML = html;
+        }
+        function extraUI() {
+            const st = gameState; if (!st) return; ensureState(st);
+            ensureGoalPanel(); renderGoalPanel();
+            playerKeys().forEach(k => {
+                const c = st[k], el = document.getElementById(k + 'NameLabel'); if (!c || !el) return;
+                el.textContent = nameOf(k) + (c.role ? ' · ' + c.role.toLocaleUpperCase('tr') : '') + (c.dead ? ' · ÖLDÜ' : '');
+                const sec = document.getElementById(k + 'PanelSection'); if (sec) sec.style.opacity = c.dead ? '.45' : '';
+                if (c.dead) { const cont = document.getElementById(k + 'OptionsContainer'); if (cont) cont.innerHTML = '<div class="text-xs font-mono text-gray-500 p-2">☠ Yaşamını yitirdi. Hikâyeyi izlemeye ve sohbete devam edebilir.</div>'; }
+                if (st.siege) { const ci = document.getElementById(k + 'CustomInput'); if (ci) { ci.disabled = true; ci.placeholder = 'Son direnişte özel hamle kapalı'; } }
+            });
+            const hint = document.getElementById('decisionHintText');
+            if (hint) { if (st.siege) hint.textContent = `KUŞATMA — DALGA ${Math.min(st.siege.wave + 1, st.siege.max)}/${st.siege.max}: hattı savunun`; else if (st.voteMode && activeKeys().length > 1 && !st.dilemma) hint.textContent = 'OYLAMA: herkes oy verir, çoğunluğun seçtiği hamleyi herkes yapar'; }
+            const hs = document.getElementById('hudSaveName');
+            if (hs) { if (st.pet) hs.textContent += ` · ${st.pet.type}: ${st.pet.name}`; if (campActive()) hs.textContent += ' · KAMP'; if (net.role === 'guest' && net.slot === 'spec') hs.textContent += ' · İZLEYİCİ'; }
+        }
+        const _uguB = updateGameUI;
+        updateGameUI = function () { if (gameState) ensureState(gameState); _uguB(); extraUI(); };
+        // sihirbaz
+        function selectWizardGoal(g) {
+            wizardGoal = g;
+            document.querySelectorAll('[data-goal]').forEach(b => { b.className = 'p-2.5 rounded-lg border text-left transition ' + (b.dataset.goal === g ? 'border-amber-500 bg-amber-500/15 text-white' : 'border-gray-700 bg-[#080b0e] text-gray-400'); });
+        }
+        const _spcB = selectWizardPlayerCount;
+        selectWizardPlayerCount = function (n) { _spcB(n); [1, 2, 3, 4].forEach(i => { const e = document.getElementById('wizardRole' + i); if (e) e.classList.toggle('hidden', i > n); }); };
+        const _onwB = openNewSaveWizard;
+        openNewSaveWizard = function (...a) { _onwB(...a); selectWizardGoal('final'); };
+        const _calB = createAndLaunchSave;
+        createAndLaunchSave = function (...a) { pendingExtras = { goal: wizardGoal, roles: [1, 2, 3, 4].map(i => (document.getElementById('wizardRole' + i) || {}).value || '') }; return _calB(...a); };
+        function initExtras(st, ex) {
+            ensureState(st);
+            if (!ex) { PKEYS.slice(0, st.playerCount).forEach(k => { if (st[k] && st[k].role === undefined) st[k].role = null; }); return; }
+            st.goalMode = ex.goal === 'final' ? 'final' : 'endless';
+            const keys = PKEYS.slice(0, st.playerCount), chosen = (ex.roles || []).slice(0, keys.length);
+            const used = new Set(chosen.filter(r => ROLES.includes(r)));
+            const pool = ROLES.filter(r => !used.has(r)).sort(() => Math.random() - .5);
+            keys.forEach((k, i) => { const r = chosen[i]; st[k].role = ROLES.includes(r) ? r : (r === '-' ? null : (pool.pop() || null)); });
+            if (st.goalMode === 'final') {
+                st.progress = 0; st.siege = null; st.location = `İstanbul / ${DISTRICTS[0].name} (Ara Sokaklar)`;
+                if (st.history[0]) st.history[0].text += '\n\nHEDEF: Kadıköy’den Eminönü’ndeki tahliye limanına ulaşın. Yol uzun: her bölgede tehlike artıyor; limanda ise son bir direniş sizi bekliyor.';
+            }
+        }
+        const _csoB = createStateObject;
+        createStateObject = function (...a) { const st = _csoB(...a); initExtras(st, pendingExtras); pendingExtras = null; return st; };
+        const _lsgB = launchSavedGame;
+        launchSavedGame = function (n) { closeSummary(); _lsgB(n); };
+        const _rtmB = returnToMainMenu;
+        returnToMainMenu = function () { closeSummary(); _rtmB(); };
     </script>
 </body>
 </html>
